@@ -1,0 +1,9 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^/?$ index.php [L,NC]
+
+<Files fingerprint.php>
+    Order Deny,Allow
+    Deny from all
+</Files>

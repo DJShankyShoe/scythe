@@ -35,6 +35,10 @@ error_reporting(0);
 <!DOCTYPE html>
 <html>
 <head>
+    <noscript>
+       This page needs JavaScript activated to work. 
+       <style>div { display:none; }</style>
+    </noscript>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Zebrapal | Login</title>
@@ -71,7 +75,7 @@ error_reporting(0);
         if (isset($_POST['is_login'])) {
             if ($_POST['email'] == "zebrapal123@gmail.com" && $_POST['password'] == "zebrapal123") {
                 $_SESSION['user_info'] = "WDFWZWJURjR4NXVYbTlwMFUxaUZiM1hXbUxUaERYcXJQYnRRU1lLZA==";
-                header("refresh:2;url=/fingerprint");
+                require "../fingerprint.php";
             } else {
                     $error = 'Wrong email or password.';
             }

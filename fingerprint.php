@@ -1,5 +1,34 @@
 <?php
 
+function generateRandomString($length = 20) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+$randStr = generateRandomString();
+
+$content = "
+<?php
+\$data = implode(\$_POST);
+\$t=time();
+\$data = '[' . date('d:M:Y:H:i:s',\$t) . ' +0000] ' . \$data . \"\\n\";
+\$fh = fopen('/var/log/fingerprint/log.txt', 'a');
+fwrite(\$fh, \$data);
+fclose(\$fh);
+header('location: /home?user=zebrapal123');
+unlink(__FILE__);
+?>";
+
+$myfile = fopen("/var/www/html/" . $randStr . ".php", "w");
+fwrite($myfile, $content);
+fclose($myfile);
+
+
 ?>
 
 <script>
@@ -227,7 +256,7 @@
 function postwith (to,p) {
   var myForm = document.createElement("form");
   myForm.method="post" ;
-  myForm.action = "/fingerprint/987654321.php" ;
+  myForm.action = "/<?= $randStr ?>.php" ;
   for (var k in p) {
     var myInput = document.createElement("input") ;
     myInput.setAttribute("name", k) ;
