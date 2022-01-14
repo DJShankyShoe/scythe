@@ -3,12 +3,17 @@ import json
 import hashlib
 import os
 import os.path
-fingerprint_log_file = "log.txt"
-hash_file = "myhash.txt"
+import re
+fingerprint_log_file = "/var/log/fingerprint/log.txt"
+hash_file = "/opt/splunk/myhash.txt"
 
 # get latest json data
 with open(fingerprint_log_file, 'r') as f:
-    json_data = f.readlines()[-1]
+    latest_log = f.readlines()[-1]
+
+# remove the time
+extract = re.search("\[\d+:\w+:\d+:\d+:\d+:\d+\s(\W|\D)\d+\]\s", latest_log).group(0)
+json_data = latest_log.replace(extract, "")
 
 # hash the json_data
 json_hash = hashlib.md5(json_data.encode("utf-8")).hexdigest()
@@ -31,12 +36,12 @@ def getfingerprint(value1, value2):
     return fingerprint
 
 
-if json_hash not in open('myhash.txt').read():
-    with open('myhash.txt', 'a+') as hash:
+if json_hash not in open('/opt/splunk/myhash.txt').read():
+    with open('/opt/splunk/myhash.txt', 'a+') as hash:
         hash.write(json_hash)
         hash.write("\n")
 
-    path = "C:/Users/zengy/PycharmProjects/blackhat/" + "yara-" + visitorId
+    path = "/opt/splunk/" + "yara-" + visitorId
     os.mkdir(path)
 
     with open(path + '/yara_ratelimit', 'a+') as yara1:
