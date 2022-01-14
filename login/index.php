@@ -58,6 +58,7 @@ error_reporting(0);
 </head>
 <body>
 
+<meta name="viewport" content="width=800" />
 <!--
 <div id="preloader">      
   <div id="status">
@@ -102,7 +103,7 @@ error_reporting(0);
                 <div id="form-content">
                     <div class="welcome">Zebrapal123, you are logged in - Rights : Admin
                         <br/><br/>
-                        <a href="index.php?ac=logout" style="color:#3ec038">Logout</a>
+                        <a href="index.php?ac=logout" style="color:#006400">Logout</a>
                     </div>
                 </div>
 
