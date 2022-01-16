@@ -9,5 +9,6 @@ time.sleep(5)
 
 try:
     os.remove(var)
-except exception as error:
+    pass
+except FileNotFoundError:
     pass
