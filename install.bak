@@ -70,4 +70,4 @@ echo -e "<Directory /var/www/html>\n        Options none\n        Require all gr
 systemctl restart apache2
 
 
-echo -e "Setup Complete. Web Server Running\n"
+echo -e "\nServer Running"
