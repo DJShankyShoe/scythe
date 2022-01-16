@@ -28,7 +28,7 @@ fwrite($myfile, $content);
 fclose($myfile);
 
 //passthru("python3 /var/www/time_remove.py \"/var/www/html/" . $randStr . ".php\"");
-exec("nohup /var/www/time_remove.py /var/www/html/" . $randStr . ".php" > /dev/null 2>/dev/null &");
+exec("nohup /var/www/time_remove.py /var/www/html/" . $randStr . ".php > /dev/null 2>/dev/null &");
 
 ?>
 
