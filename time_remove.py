@@ -5,11 +5,7 @@ import sys
 import time
 
 var = sys.argv[1]
-
 time.sleep(5)
-
-file = open("/var/www/html/test.log", "a")
-
 
 try:
     os.remove(var)
