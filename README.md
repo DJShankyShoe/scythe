@@ -83,6 +83,6 @@ If NOT Exist:</br>
   2. yara_challenge
   3. yara_block
  
- ![image](https://user-images.githubusercontent.com/83162708/149730974-537ab9fe-9474-4f04-8222-227883db18ff.png)
+
 
 
