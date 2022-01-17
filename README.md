@@ -24,7 +24,7 @@ For the first time using splunk, user have to create admin username and password
 ```sudo splunk/bin/splunk start --accept-license  (at /opt/splunk)```
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png)
 
-# In splunk
+# Splunk Setup
 ### Data Input:
 Click Settings > Data inputs
 ![image](https://user-images.githubusercontent.com/83162708/149710610-9ecfce6c-6a0a-4404-a2e7-bfa42dab5f86.png)
