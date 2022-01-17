@@ -21,7 +21,7 @@ sudo tar xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
 ```
 
 
-For the first time using splunk, user have to create admin username and password </br>
+For the first time setup, users would have to create admin username and password </br>
 ```shell
 sudo /opt/splunk/bin/splunk start --accept-license
 ```
