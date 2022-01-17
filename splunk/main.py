@@ -66,13 +66,13 @@ if json_hash not in open('/opt/splunk/myhash.txt').read():
                     "{\n"
                     ""
                     "strings:\n"
-                    "   $browser_permissions_hash = " + '"' + browser_permissions_hash + '"\n' +
-                    "   $browser_font_hash = " + '"' + browser_font_hash + '"\n' +
+                    "   $browser_permissions = " + '"' + str(getfingerprint('browser','permissions')) + '"\n' +
+                    "   $browser_fonts = " + '"' + str(getfingerprint('browser','fonts')) + '"\n' +
                     "   $city = " + '"' + getfingerprint('network','city') + '"\n' +
                     "   $cavas = " + '"' + getfingerprint('browser','canvas') + '"\n' +
                     "\n"
                     "condition:\n"
-                    "    $browser_permissions_hash and $browser_font_hash and $city and $cavas"
+                    "    $browser_permissions and $browser_fonts and $city and $cavas"
                     ""
                     "\n"
                     "}")
@@ -82,15 +82,15 @@ if json_hash not in open('/opt/splunk/myhash.txt').read():
                     "{\n"
                     ""
                     "strings:\n"
-                    "   $browser_permissions_hash = " + '"' + browser_permissions_hash + '"\n' +
-                    "   $browser_font_hash = " + '"' + browser_font_hash + '"\n' +
+                    "   $browser_permissions = " + '"' + str(getfingerprint('browser','permissions')) + '"\n' +
+                    "   $browser_fonts= " + '"' + str(getfingerprint('browser','fonts')) + '"\n' +
                     "   $ip = " + '"' + getfingerprint('network','query') + '"\n' +
                     "   $visitor_id = " + '"' + visitorId + '"\n' +
                     "   $cavas = " + '"' + getfingerprint('browser','canvas') + '"\n' +
                     "   $agent = " + '"' + getfingerprint('jscd', 'agent') + '"\n' +
                     "\n"
                     "condition:\n"
-                    "    $browser_permissions_hash and $browser_font_hash and $ip and $visitor_id and $cavas and $agent"
+                    "    $browser_permissions and $browser_fonts and $ip and $visitor_id and $cavas and $agent"
                     ""
                     "\n"
                     "}")
