@@ -69,3 +69,12 @@ Click Save as alert: </br>
 
 ![image](https://user-images.githubusercontent.com/83162708/149710721-b11d2b42-55a0-4b5a-8f38-648dcb9210f4.png)
 
+# After alert being triggered
+The main.py located at /opt/splunk/splunk/bin/scripts will run.
+Functions that the script perform:
+It will hash the JSON format fingerprints and check if the hash is exist in myhash.txt
+
+If Exist:
+Do nothing.
+
+If NOT Exist:
