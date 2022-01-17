@@ -1,7 +1,7 @@
 # yetToBeNamed
 
 # Description
-A honeypot webpage running using an apache server and will take in the visitor/attacker fingerprint. We have Splunk to monitor the logs for the apache. Once the visitor/attacker has used the given username and password to log in this will trigger the alert and a python script, the script will use the visitor ID to identify the user if is unique if the user does not exist in the signature. It will automatically update the YARA signatures into 3 different parts.
+A honeypot webpage running using an apache server and will take in the visitor/attacker fingerprint. We have Splunk to monitor the logs for the apache. Once the visitor/attacker has used the given username and password to log in this will trigger the alert and a python script, the script will use the hash  of JSON fingerprints to identify the user if is unique if the user does not exist in the check file. It will automatically update the hash file and create YARA signature which consists of 3 different parts.
 
 # Websever Setup
 Install the package & and run `install`
