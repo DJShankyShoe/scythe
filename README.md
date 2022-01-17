@@ -14,15 +14,12 @@ Download .tgz format
 
 ```sudo mkdir /opt/splunk``` </br>
 
-![image](https://user-images.githubusercontent.com/83162708/149710132-654abf3b-ec54-4d71-9e61-2665d42de5b8.png)
 
 Based on the version of download </br>
 ```sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk``` </br>
 
-![image](https://user-images.githubusercontent.com/83162708/149708775-03914b42-a7e4-49ba-8e6f-a6fd7eb2855c.png)
 
 ```sudo tar xvzf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz```
-![image](https://user-images.githubusercontent.com/83162708/149712614-63c3e824-e8b3-4267-a63a-237da60857ea.png)
 
 For the first time using splunk, user have to create admin username and password.</br>
 ```sudo splunk/bin/splunk start --accept-license  (at /opt/splunk)```
