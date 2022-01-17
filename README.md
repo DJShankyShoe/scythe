@@ -14,9 +14,7 @@ Download .tgz format
 ![image](https://user-images.githubusercontent.com/83162708/149708677-d4c5ccd7-a07f-48b3-9c59-b3349786e70f.png)
 
 
-Create a directory at `/opt/splunk` for your splunk installation
-
-Move the splunk installation package to `/opt/splunk` </br>
+Create a directory at `/opt/splunk` for your splunk installation and move splunk tar package there for extarction </br>
 ```sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk``` </br>
 ```sudo tar xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz```
 
