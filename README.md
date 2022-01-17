@@ -16,7 +16,7 @@ Download .tgz format
 
 ![image](https://user-images.githubusercontent.com/83162708/149710132-654abf3b-ec54-4d71-9e61-2665d42de5b8.png)
 
-Based on the version of download
+Based on the version of download </br>
 ```sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk``` </br>
 
 ![image](https://user-images.githubusercontent.com/83162708/149708775-03914b42-a7e4-49ba-8e6f-a6fd7eb2855c.png)
