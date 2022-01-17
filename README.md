@@ -3,6 +3,15 @@
 # Description
 A honeypot webpage running using an apache server and will take in the visitor/attacker fingerprint. We have Splunk to monitor the logs for the apache. Once the visitor/attacker has used the given username and password to log in this will trigger the alert and a python script, the script will use the visitor ID to identify the user if is unique if the user does not exist in the signature. It will automatically update the YARA signatures into 3 different parts.
 
+# Websever Setup
+Install the package & and run `install`
+> Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to move them somehwere safe since this directory will be overwritten
+```shell
+git https://github.com/DJShankyShoe/yetToBeNamed.git
+tar -xvzf yetToBeNamed.git && cd yetToBeNamed
+sudo ./install
+```
+
 
 # Splunk Installation
 For this part, users must do it manually, due to the Splunk license. User can use their 60days free trial to download
@@ -17,7 +26,7 @@ Download .tgz format
 Create a directory at `/opt/splunk` for your splunk installation and move splunk tar package there for extarction </br>
 ```shell
 sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk
-sudo tar xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
+sudo tar -xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
 ```
 
 
