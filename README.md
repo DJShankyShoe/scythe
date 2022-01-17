@@ -28,6 +28,10 @@ Create a directory at `/opt/splunk` for your splunk installation and move splunk
 sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk
 sudo tar -xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
 ```
+Create a myhash.txt at `/opt/splunk` to store the hashes of the JSON fingerprint </br>
+```shell
+sudo touch myhash.txt
+```
 
 For the first time setup, users would have to create admin username and password </br>
 ```shell
