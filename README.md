@@ -47,7 +47,7 @@ File or Directories: /var/log/apache2
 
 
 ### Alert:
-Search: "/var/log/apache2/*" user=zebrapal123 
+Search: `"/var/log/apache2/*" user=zebrapal123`
 
 ![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
 
