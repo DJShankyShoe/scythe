@@ -52,11 +52,11 @@ Search: "/var/log/apache2/*" user=zebrapal123
 ![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
 
 
-Save as alert:
-Tile: zebrapal </br>
-Alert type: Real-time </br>
-Expires: 60 days </br>
-When triggered: Run a script, File name:main.py
+Save as alert: </br>
+> Tile: zebrapal </br>
+> Alert type: Real-time </br>
+> Expires: 60 days </br>
+> When triggered: Run a script, File name:main.py
 
 ![image](https://user-images.githubusercontent.com/83162708/149710721-b11d2b42-55a0-4b5a-8f38-648dcb9210f4.png)
 
