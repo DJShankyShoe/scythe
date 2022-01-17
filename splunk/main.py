@@ -41,7 +41,7 @@ if json_hash not in open('/opt/splunk/myhash.txt').read():
         hash.write(json_hash)
         hash.write("\n")
 
-    path = "/opt/splunk/" + "yara-" + visitorId
+    path = "/opt/splunk/" + "yara-" + json_hash
     os.mkdir(path)
 
     with open(path + '/yara_ratelimit', 'a+') as yara1:
