@@ -15,14 +15,14 @@ Download .tgz format
 
 
 Create a directory at `/opt/splunk` for your splunk installation and move splunk tar package there for extarction </br>
-```bash
+```shell
 sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk
 sudo tar xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
 ```
 
 
 For the first time using splunk, user have to create admin username and password </br>
-```
+```shell
 sudo /opt/splunk/bin/splunk start --accept-license
 ```
 
