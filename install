@@ -70,5 +70,7 @@ echo -e "<Directory /var/www/html>\n        Options none\n        Require all gr
 # restart apache service to apply changes
 systemctl restart apache2
 
+# create splunk folder
+mkdir /opt/splunk
 
 echo -e "Setup Complete. Web Server Running\n"
