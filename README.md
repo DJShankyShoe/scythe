@@ -22,6 +22,7 @@ Based on the version of download </br>
 ![image](https://user-images.githubusercontent.com/83162708/149708775-03914b42-a7e4-49ba-8e6f-a6fd7eb2855c.png)
 
 ```sudo tar xvzf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz```
+![image](https://user-images.githubusercontent.com/83162708/149712614-63c3e824-e8b3-4267-a63a-237da60857ea.png)
 
 For the first time using splunk, user have to create admin username and password.</br>
 ```sudo splunk/bin/splunk start --accept-license  (at /opt/splunk)```
