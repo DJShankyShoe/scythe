@@ -14,12 +14,13 @@ Download .tgz format
 ![image](https://user-images.githubusercontent.com/83162708/149708677-d4c5ccd7-a07f-48b3-9c59-b3349786e70f.png)
 
 
-Create a directory at `/opt/splunk` for your splunk installation and move splunk tar package there for extarction </br></br>
-```sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk``` </br>
-```sudo tar xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz```
+Create a directory at `/opt/splunk` for your splunk installation and move splunk tar package there for extarction </br>
+```bash
+sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk
+sudo tar xvzf /otp/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz```
 
 
-For the first time using splunk, user have to create admin username and password </br></br>
+For the first time using splunk, user have to create admin username and password </br>
 ```sudo /opt/splunk/bin/splunk start --accept-license```
 
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png) </br>
