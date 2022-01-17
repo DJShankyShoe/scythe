@@ -52,7 +52,7 @@ Search: `"/var/log/apache2/*" user=zebrapal123`
 ![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
 
 
-Save as alert: </br>
+Click Save as alert: </br>
 > Tile: zebrapal </br>
 > Alert type: Real-time </br>
 > Expires: 60 days </br>
