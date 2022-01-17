@@ -35,6 +35,7 @@ done
 
 
 # move installation web files to apache folder - html
+mkdir /var/www/html
 cp -r "template designs/template 1"/* /var/www/html/
 cp *.php /var/www/html/
 cp time_remove.py /var/www
