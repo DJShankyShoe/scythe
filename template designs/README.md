@@ -1,7 +1,6 @@
 ## Template 1
 
 ### Login
-![login](https://raw.githubusercontent.com/DJShankyShoe/yetToBeNamed/master/template%20designs/images/temp_1_login.png?token=GHSAT0AAAAAABQP4OM4OYQ7SY3AZSRVXNQGYPD4JOQ)
-
+![image](https://user-images.githubusercontent.com/62169971/149717267-1d3d2de6-035b-4cd9-8ed2-4b78d9445009.png)
 ### Home
-![home](https://raw.githubusercontent.com/DJShankyShoe/yetToBeNamed/master/template%20designs/images/temp_1_home.png?token=GHSAT0AAAAAABQP4OM52VZYAJJ3MJM5URUQYPD4I3Q)
+![image](https://user-images.githubusercontent.com/62169971/149717281-dce08411-7567-4875-b704-45ede2c1b9a2.png)
