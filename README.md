@@ -35,7 +35,7 @@ sudo touch myhash.txt
 
 For the first time setup, users would have to create admin username and password </br>
 ```shell
-sudo /opt/splunk/bin/splunk start --accept-license
+sudo /opt/splunk/splunk/bin/splunk start --accept-license
 ```
 
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png) </br>
