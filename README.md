@@ -14,6 +14,7 @@ sudo ./install
 
 
 # Splunk Installation
+<details>
 For this part, users must do it manually, due to the Splunk license. User can use their 60days free trial to download
 https://www.splunk.com/en_us/download/splunk-enterprise.html
 
@@ -75,6 +76,7 @@ Click Save as alert: </br>
 > When triggered: Run a script, File name:main.py
 
 ![image](https://user-images.githubusercontent.com/83162708/149710721-b11d2b42-55a0-4b5a-8f38-648dcb9210f4.png)
+</details>
 
 # After alert being triggered
 The main.py located at ```/opt/splunk/splunk/bin/scripts``` will run.</br>
