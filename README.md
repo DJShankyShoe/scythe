@@ -96,7 +96,10 @@ If NOT Exist:</br>
   2. yara_challenge
   3. yara_block
  
-# Next Steps
+# Moving Forward
 - Using the created signature yara_block to create auto block
+- Integration of more SIEM tools
+- Fingeprint more information
+- Customize your own signatures easily
 
 
