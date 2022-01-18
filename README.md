@@ -90,6 +90,7 @@ If NOT Exist:</br>
   2. yara_challenge
   3. yara_block
  
-
+#Next Steps
+- Using the created signature yara_block to create auto block
 
 
