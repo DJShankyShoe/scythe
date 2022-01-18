@@ -1,9 +1,9 @@
 # yetToBeNamed
 
-# Description
+## Description
 A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and broswer information upon visit. Once an actor visits the page for login in, fingerprint.js will be executed. This data will logged for SIEM monitoring like Splunk and creating signatures. To lure attacker, credentials can be released on the net where upon successeful logon using those credential would reveal bad actors and fingerprinting is done. Failed logon attempts can also be monitored for fingerprinting when a bruteforce takes place. Splunk rules for those scenarios can be created and once alerted it will exeute main.py which is responsibile for extracting the right fingerprints from the logs for generrting 3 main types of signatures for each actor/unique fingerprint. These 3 singatures are designed for 3 different stages of defense - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continously updateing signatures.
 
-# Websever Setup
+## Websever Setup
 Install the package & and run `install`
 > Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to move them somehwere safe since this directory will be overwritten
 ```shell
@@ -15,7 +15,7 @@ sudo ./install
 When Installed
 
 
-# Splunk Installation
+## Splunk Installation
 <details>
 <summary>Click for details</summary>
   
@@ -46,7 +46,7 @@ sudo /opt/splunk/splunk/bin/splunk start --accept-license
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png) </br>
 
 
-# Splunk Setup
+## Splunk Setup
 Please place
 [main.py](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/main.py) at ```/opt/splunk/splunk/bin/scripts```
 
@@ -82,7 +82,9 @@ Click Save as alert: </br>
 ![image](https://user-images.githubusercontent.com/83162708/149710721-b11d2b42-55a0-4b5a-8f38-648dcb9210f4.png)
 </details>
 
-# After alert being triggered
+## How it Works
+
+## After alert being triggered
 The main.py located at ```/opt/splunk/splunk/bin/scripts``` will run.</br>
 The script will hash the JSON format fingerprints and check if the hash is exist in myhash.txt
 
@@ -95,8 +97,10 @@ If NOT Exist:</br>
   1. yara_ratelimit
   2. yara_challenge
   3. yara_block
+
+## Use Cases
  
-# Moving Forward
+## Moving Forward
 - Using the created signature yara_block to create auto block
 - Integration of more SIEM tools
 - Fingeprint more information
