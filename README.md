@@ -15,6 +15,8 @@ sudo ./install
 
 # Splunk Installation
 <details>
+<summary>Click for details</summary>
+  
 For this part, users must do it manually, due to the Splunk license. User can use their 60days free trial to download
 https://www.splunk.com/en_us/download/splunk-enterprise.html
 
