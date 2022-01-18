@@ -1,16 +1,18 @@
 # yetToBeNamed
 
 # Description
-A honeypot webpage running using an apache server and will take in the visitor/attacker fingerprint. We have Splunk to monitor the logs for the apache. Once the visitor/attacker has used the given username and password to log in this will trigger the alert and a python script, the script will use the hash  of JSON fingerprints to identify the user if is unique if the user does not exist in the check file. It will automatically update the hash file and create YARA signature which consists of 3 different parts.
+A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and broswer information upon visit. Once an actor visits the page for login in, fingerprint.js will be executed. This data will logged for SIEM monitoring like Splunk and creating signatures. To lure attacker, credentials can be released on the net where upon successeful logon using those credential would reveal bad actors and fingerprinting is done. Failed logon attempts can also be monitored for fingerprinting when a bruteforce takes place. Splunk rules for those scenarios can be created and once alerted it will exeute main.py which is responsibile for extracting the right fingerprints from the logs for generrting 3 main types of signatures for each actor/unique fingerprint. These 3 singatures are designed for 3 different stages of defense - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continously updateing signatures.
 
 # Websever Setup
 Install the package & and run `install`
 > Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to move them somehwere safe since this directory will be overwritten
 ```shell
-git https://github.com/DJShankyShoe/yetToBeNamed.git
+git clone https://github.com/DJShankyShoe/yetToBeNamed.git
 tar -xvzf yetToBeNamed.git && cd yetToBeNamed
 sudo ./install
 ```
+
+When Installed
 
 
 # Splunk Installation
