@@ -5,7 +5,7 @@ A "honeypot" webpage that is used to display a fake organisation that fingerprin
 
 ## Websever Setup
 Install the package & and run `install`
-> Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to move them somehwere safe since this directory will be overwritten
+> Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to tranfer them somewhere safe since this directory will be overwritten
 ```shell
 git clone https://github.com/DJShankyShoe/yetToBeNamed.git
 tar -xvzf yetToBeNamed.git && cd yetToBeNamed
@@ -90,6 +90,10 @@ Click Save as alert: </br>
 - Upon alert (customizable by the user), it executes main.py which then extracts the appropriate fingerprint for that event
 - Main.py will then generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
 
+## Fingerprints Details
+- General
+  - screnn
+
 ## After alert being triggered
 The main.py located at ```/opt/splunk/splunk/bin/scripts``` will be executed</br>
 The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
@@ -97,7 +101,7 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 **If Duplicate Exist:**
 - Do nothing
 
-**If NO Duplicates Exist:**
+<br>**If NO Duplicates Exist:**
 - Update the myhash.txt
 - Create a new folder named: yara-(Hash values of the JSON fingerprints）, in the folder it will consist:
   1. yara_ratelimit
