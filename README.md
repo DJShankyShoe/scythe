@@ -185,7 +185,7 @@ Funtions of this dashboard
 - The user able to input ip to check if there is realated hash to the IP
 - Check the locations
 
-Click [HERE] to get dashboard source code (https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/dashboard.xml)
+Click [HERE](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/dashboard.xml) to get dashboard source code
 
 ## Use Cases
  
