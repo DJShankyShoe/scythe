@@ -2,17 +2,17 @@
   <label>Alert</label>
   <fieldset submitButton="true">
     <html>
-        <img src="/opt/signatures/splunk/static/app/search/images/hacker.jpg" width="200" length="200"/>
+        <img src="https://avatars.dicebear.com/api/bottts/$hash$.svg" width="200" length="200"/>
       </html>
     <input type="dropdown" token="hash">
       <label>Hash</label>
       <fieldForLabel>hash</fieldForLabel>
       <fieldForValue>hash</fieldForValue>
       <search>
-        <query>source="/opt/signatures/myhash.txt"
+        <query>source="D:\\splunk\\myhash.txt"
 | eval hash = _raw
 | stats count by hash</query>
-        <earliest>-7d@h</earliest>
+        <earliest>-24h@h</earliest>
         <latest>now</latest>
       </search>
     </input>
@@ -29,8 +29,8 @@
       <table>
         <title>All Infomation</title>
         <search>
-          <query>source="/opt/signatures/yara-*"
-| rex field=source ".opt.signatures.yara\-(?&lt;source&gt;\S+).yara*"
+          <query>source="D:\\splunk\\yara-*"
+| rex field=source "D:.splunk.yara\-(?&lt;source&gt;\S+).yara*"
 | stats count by ip,source
 | fields ip,source
 | stats list(source) by ip
@@ -49,8 +49,8 @@
       <table>
         <title>Related Hashes</title>
         <search>
-          <query>source="/opt/signatures/yara-*" ip=$targetip$
-| rex field=source ".opt.signatures.yara\-(?&lt;source&gt;\S+).yara*"
+          <query>source="D:\\splunk\\yara-*" ip=$targetip$
+| rex field=source "D:.splunk.yara\-(?&lt;source&gt;\S+).yara*"
 | stats count by ip,source
 | fields ip,source
 | stats list(source) by ip
@@ -68,7 +68,7 @@
       <chart>
         <title>Location</title>
         <search>
-          <query>source="/opt/signatures/yara*"
+          <query>source="D:\\splunk\\yara-*"
 | iplocation ip
 | stats count by Country</query>
           <earliest>$time.earliest$</earliest>
@@ -89,7 +89,7 @@
       <event>
         <title>Yara-Ratelimit</title>
         <search>
-          <query>source="/opt/signatures/yara-$hash$/yara_ratelimit"</query>
+          <query>source="D:\\splunk\\yara-$hash$\\yara_ratelimit"</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
         </search>
@@ -105,7 +105,7 @@
       <event>
         <title>Yara-Challenge</title>
         <search>
-          <query>source="/opt/signatures/yara-$hash$/yara_challenge"</query>
+          <query>source="D:\\splunk\\yara-$hash$\\yara_challenge"</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
         </search>
@@ -118,7 +118,7 @@
       <event>
         <title>Yara-Block</title>
         <search>
-          <query>source="/opt/signatures/yara-$hash$/yara_block"</query>
+          <query>source="D:\\splunk\\yara-$hash$\\yara_block"</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
         </search>
