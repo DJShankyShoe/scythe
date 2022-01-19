@@ -25,10 +25,9 @@ Download .tgz format
 ![image](https://user-images.githubusercontent.com/83162708/149708677-d4c5ccd7-a07f-48b3-9c59-b3349786e70f.png)
 
 
-Move the splunk tar package at `/opt/splunk` for extraction </br>
+Extract the splunk tar package at `/opt` </br>
 ```shell
-sudo mv splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz /opt/splunk
-sudo tar -xvzf /opt/splunk/splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz
+sudo tar -xvzf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz -C /opt
 ```
 Create a myhash.txt at `/opt/splunk` to store the hashes of the JSON fingerprints </br>
 ```shell
