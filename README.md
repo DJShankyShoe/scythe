@@ -75,7 +75,7 @@ Click Save as alert: </br>
 </details>
 
 ## Flow
-![image](https://user-images.githubusercontent.com/62169971/150054771-2ee3b683-7132-4f42-895f-3058974e6f92.png)
+![image](https://user-images.githubusercontent.com/62169971/150096967-4a1bfe06-89b0-47d4-b588-8575fccaaada.png)
 
 - Upon successful/failed login, the page will load fingerprint.php
 - Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
