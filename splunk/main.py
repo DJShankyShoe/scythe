@@ -5,7 +5,7 @@ import os
 import os.path
 import re
 fingerprint_log_file = "/var/log/fingerprint/log.txt"
-hash_file = "/opt/splunk/myhash.txt"
+hash_file = "/opt/signatures/myhash.txt"
 
 # get latest json data
 with open(fingerprint_log_file, 'r') as f:
@@ -36,12 +36,12 @@ def getfingerprint(value1, value2):
     return fingerprint
 
 
-if json_hash not in open('/opt/splunk/myhash.txt').read():
-    with open('/opt/splunk/myhash.txt', 'a+') as hash:
+if json_hash not in open('/opt/signatures/myhash.txt').read():
+    with open('/opt/signatures/myhash.txt', 'a+') as hash:
         hash.write(json_hash)
         hash.write("\n")
 
-    path = "/opt/splunk/" + "yara-" + json_hash
+    path = "/opt/signatures" + "yara-" + json_hash
     os.mkdir(path)
 
     with open(path + '/yara_ratelimit', 'a+') as yara1:
