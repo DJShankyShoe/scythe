@@ -227,7 +227,7 @@ For this scenarios, the Block signature can be integrated with a firewall to blo
 
 
 ### Scenario: Bruteforce
-> Reducing redirections & wait times after failed logins would increase the simplicity to perform bruteforce atatckers
+> Reducing redirections & wait times after failed logins would increase the simplicity to perform bruteforce attacks
 
 When come across our honeypot site, attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)
 
