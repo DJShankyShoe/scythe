@@ -12,9 +12,6 @@ tar -xvzf yetToBeNamed.git && cd yetToBeNamed
 sudo ./install
 ```
 
-When Installed
-
-
 ## Splunk Installation
 <details>
 <summary>Click for details</summary>
@@ -82,7 +79,9 @@ Click Save as alert: </br>
 ![image](https://user-images.githubusercontent.com/83162708/149710721-b11d2b42-55a0-4b5a-8f38-648dcb9210f4.png)
 </details>
 
-## How it Works
+## Flow
+![image](https://user-images.githubusercontent.com/62169971/150054771-2ee3b683-7132-4f42-895f-3058974e6f92.png)
+
 
 ## After alert being triggered
 The main.py located at ```/opt/splunk/splunk/bin/scripts``` will run.</br>
