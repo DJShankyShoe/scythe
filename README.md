@@ -36,7 +36,7 @@ sudo touch myhash.txt
 
 For the first time setup, users would have to create admin username and password </br>
 ```shell
-sudo /opt/splunk/splunk/bin/splunk start --accept-license
+sudo /opt/splunk/bin/splunk start --accept-license
 ```
 
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png) </br>
@@ -44,7 +44,7 @@ sudo /opt/splunk/splunk/bin/splunk start --accept-license
 
 ## Splunk Setup
 Please place
-[main.py](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/main.py) at ```/opt/splunk/splunk/bin/scripts```
+[main.py](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/main.py) at ```/opt/splunk/bin/scripts```
 
 
 ### Data Input:
@@ -64,18 +64,18 @@ File or Directories: /var/log/apache2
 
 
 ### Alert:
-Search: `"/var/log/apache2/*" user=zebrapal123`
+Search: `source="/var/log/apache2/access.log*" user=zebrapal123`
 
 ![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
 
 
 Click Save as alert: </br>
-> Tile: zebrapal </br>
+> Tile: Actor Login </br>
 > Alert type: Real-time </br>
 > Expires: 60 days </br>
 > When triggered: Run a script, File name:main.py
 
-![image](https://user-images.githubusercontent.com/83162708/149710721-b11d2b42-55a0-4b5a-8f38-648dcb9210f4.png)
+![image](https://user-images.githubusercontent.com/62169971/150076852-c6c5ff6e-a49d-430e-a2a8-4f1873c4f549.png)
 </details>
 
 ## Flow
@@ -167,7 +167,7 @@ Click Save as alert: </br>
 - Unqiue Visitor ID - FingerprintJS
 
 ## After alert being triggered
-The main.py located at ```/opt/splunk/splunk/bin/scripts``` will be executed</br>
+The main.py located at ```/opt/splunk/bin/scripts``` will be executed</br>
 The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
 
 **If Duplicate Exist:**
