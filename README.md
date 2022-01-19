@@ -1,7 +1,7 @@
 # yetToBeNamed
 
 ## Description
-A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and broswer information upon visit. Once an actor visits the page for login in, fingerprint.js will be executed. This data will logged for SIEM monitoring like Splunk and creating signatures. To lure attacker, credentials can be released on the net where upon successeful logon using those credential would reveal bad actors and fingerprinting is done. Failed logon attempts can also be monitored for fingerprinting when a bruteforce takes place. Splunk rules for those scenarios can be created and once alerted it will exeute main.py which is responsibile for extracting the right fingerprints from the logs for generrting 3 main types of signatures for each actor/unique fingerprint. These 3 singatures are designed for 3 different stages of defense - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continously updateing signatures.
+A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and browser information upon visit. Once an actor visits the page for login, fingerprint.js will be executed. This data will be logged for SIEM monitoring like Splunk and creating signatures. To lure attackers, credentials can be released on the net whereupon successful logon using those credentials would reveal bad actors and fingerprinting is done. Failed login attempts can also be monitored for fingerprinting when brute force takes place. Splunk rules for those scenarios can be created and once alerted it will execute main.py which is responsible for extracting the right fingerprints from the logs for generating 3 main types of signatures for each actor/unique fingerprint. These 3 signatures are designed for 3 different stages of defence - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continuously updating signatures.
 
 ## Websever Setup
 Install the package & and run `install`
@@ -83,21 +83,21 @@ Click Save as alert: </br>
 ![image](https://user-images.githubusercontent.com/62169971/150054771-2ee3b683-7132-4f42-895f-3058974e6f92.png)
 
 - Upon successful/failed login, the page will load fingerprint.php
-- Fingerprint.php creates a randomly generated php file name for retreiving POST data
-- Fingerprint.php collects fingerprint from the actor and POSTS it to the generated php file
-- The generated php file logs the fingerpriint & deletes itself
+- Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
+- Fingerprint.php collects fingerprint from the actor and POSTS it to the generated PHP file
+- The generated PHP file logs the fingerprint & deletes itself
 - The logs from apache & fingerprint is logged by SIEM Splunk
-- Upon alert (cuzstomizable by user), it executes main.py which then extracts the apprpriate fingerprint for that event
-- Main.py will then genereate 3 main types of yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
+- Upon alert (customizable by the user), it executes main.py which then extracts the appropriate fingerprint for that event
+- Main.py will then generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
 
 ## After alert being triggered
-The main.py located at ```/opt/splunk/splunk/bin/scripts``` will run.</br>
-The script will hash the JSON format fingerprints and check if the hash is exist in myhash.txt
+The main.py located at ```/opt/splunk/splunk/bin/scripts``` will be executed</br>
+The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
 
-If Exist:</br>
-Do nothing.
+If Duplicate Exist:</br>
+Do nothing
 
-If NOT Exist:</br>
+If NO Duplicates Exist:</br>
 - Update the myhash.txt
 - Create a new folder named: yara-(Hash values of the JSON fingerprints）, in the folder it will consist:
   1. yara_ratelimit
