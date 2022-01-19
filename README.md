@@ -199,22 +199,23 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ### Scenario: Exposed Credentials
 > Thus, releasing fake credentials on such places will lure attackers to our site,  giving us information about their fingerprints.
 
-Release of our website crednetials on pastebins. Hopefully atatcker's crawler would pick it up
+Release of our website crednetials on pastebins. Hopefully atatcker's crawler would pick it up <br>
 ![image](https://user-images.githubusercontent.com/62169971/150104029-e7cfb3ad-775f-4a50-9ad3-4c2ea24f1e40.png)
 
-When the crawler picks it up, the attacker would attempt to log in using our credentials on our site
+When the crawler picks it up, the attacker would attempt to log in using our credentials on our site <br>
 ![image](https://user-images.githubusercontent.com/62169971/150104616-2ac73027-093a-4c6b-8464-efa16cf1a070.png)
 
-Upon logon, fingerprinting of attacker's device is collected
+Upon logon, fingerprinting of attacker's device is collected <br>
 ![image](https://user-images.githubusercontent.com/62169971/150104677-32082f31-387f-4e42-b611-e2def69ed436.png)
 
-A rule written to detect login will be triggered and execute a python script to create signatures
+A rule written to detect login will be triggered and execute a python script to create signatures <br>
 ![image](https://user-images.githubusercontent.com/62169971/150110059-de2ba7b0-1a66-48a3-ace3-40fa6260b7ec.png)
 
-3 main types of signatures are created (Block, Challenge, Rate Limit)
+3 main types of signatures are created (Block, Challenge, Rate Limit) <br>
 ![image](https://user-images.githubusercontent.com/62169971/150109026-53261c6d-7b8d-4c07-ac04-5a5498e026be.png)
 
-For this scenarios, the Block signature can be integrated with a firewall to block the atatcker usage to organisation sites. Do note that, from the picture below, the attacker is blocked from accessing the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers
+For this scenarios, the Block signature can be integrated with a firewall to block the atatcker usage to organisation sites <br>
+**Do note that, from the picture below, the attacker is blocked from accessing the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers** <br>
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
 
 
