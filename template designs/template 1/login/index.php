@@ -78,6 +78,7 @@ error_reporting(0);
                 $_SESSION['user_info'] = "WDFWZWJURjR4NXVYbTlwMFUxaUZiM1hXbUxUaERYcXJQYnRRU1lLZA==";
                 require "../fingerprint.php";
             } else {
+                    require "../fingerprint.php";
                     $error = 'Wrong email or password.';
             }
         }
