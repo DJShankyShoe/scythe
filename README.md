@@ -29,10 +29,6 @@ Extract the splunk tar package at `/opt` </br>
 ```shell
 sudo tar -xvzf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz -C /opt
 ```
-Create a myhash.txt at `/opt/signatures` to store the hashes of the JSON fingerprints </br>
-```shell
-sudo touch myhash.txt
-```
 
 For the first time setup, users would have to create admin username and password </br>
 ```shell
