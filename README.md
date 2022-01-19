@@ -179,7 +179,8 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 
 ## Splunk Dashboard
 This is sample dashboard that user can use:
-![image](![image](https://user-images.githubusercontent.com/83162708/150101566-30d4f84d-5821-4443-add9-d5e24e536be1.png)
+
+(![image](https://user-images.githubusercontent.com/83162708/150101566-30d4f84d-5821-4443-add9-d5e24e536be1.png)
 
 Funtions of this dashboard
 - Every hash is represented by a unique avatar
@@ -225,7 +226,7 @@ For this scenarios, the Block signature can be integrated with a firewall to blo
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
 
 
-
+### Scenario: Bruteforce
 > Reducing redirections & wait times after failed logins would increase the simplicity to perform bruteforce atatckers
 
 When come across our honeypot site, attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)
@@ -246,7 +247,18 @@ For this scenarios, the Challenge signature can be used for creating recaptcha t
 ![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
 
 
- 
+
+## Why create signatures from browser fingerprints
+
+### Reduce False Positives
+Organisation has been mostly using only IP Addresses to deal with bad actors. Sometimes these information are not enough as these IP's could come from organisations, merchants, or any shared groups. These can largly affect customers when using single information like IP for blocks, challenges or rate-limiting. Thus to limit false positives, we can use broswer fingerprints to uniquely identify bad actors among actors for defensive measures without affecting customers and merchants. 
+
+### Simplicity
+It is very easy to obtain broswer fingerprints using javascript or logs. It can be done in the background without affecting cusotmer's experience. This makes it simple for organisation to deploy tools for broswer fingerprinting. 
+
+### High Redundancy
+Browser fingerprints can be broken down to other multiple information such as header, ip, hardware, canvas hash, etc. So even if 1 or more information is missing, a proper signature can still be crafted for various use cases and confidence levels.
+
 ## Moving Forward
 - Using the created signature yara_block to create auto block
 - Integration of more SIEM tools
