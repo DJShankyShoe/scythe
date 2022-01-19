@@ -94,10 +94,10 @@ Click Save as alert: </br>
 The main.py located at ```/opt/splunk/splunk/bin/scripts``` will be executed</br>
 The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
 
-If Duplicate Exist:</br>
-Do nothing
+**If Duplicate Exist:**
+- Do nothing
 
-If NO Duplicates Exist:</br>
+**If NO Duplicates Exist:**
 - Update the myhash.txt
 - Create a new folder named: yara-(Hash values of the JSON fingerprints）, in the folder it will consist:
   1. yara_ratelimit
