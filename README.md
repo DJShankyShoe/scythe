@@ -92,7 +92,80 @@ Click Save as alert: </br>
 
 ## Fingerprints Details
 - General
-  - screnn
+  - Screen Resolution
+  - Broswer Type
+  - Broswer Version
+  - Mobile (True/False)
+  - OS Type
+  - OS Version
+  - Cookies (True/False)
+  - Flash Version
+  - Agent
+- Hardware
+  - CPU Cores
+  - GPU
+- Network
+  - API Status
+  - Country
+  - Region
+  - Region Name
+  - City
+  - Zip
+  - Latitude
+  - Longitude
+  - ISP
+  - ORG
+  - As
+  - Asname
+  - Reverse DNS
+  - Mobile - Cellular Data (True/False)
+  - Proxy (True/False)
+  - Hosting (True/False)
+  - IP Address
+- Browser
+  - Broswer Permissions
+    - Geolocation
+    - Notification
+    - Push
+    - Midi
+    - Camera
+    - Microphone
+    - Speaker
+    - Device-info
+    - Background-fetch
+    - Background-sync
+    - Bluetooth
+    - Persistent-storage
+    - Ambient-light-sensor
+    - Accelerometer
+    - Gyroscope
+    - Magnetometer
+    - Clipboard
+    - Screen-wake-lock
+    - NFC
+    - Display-capture
+    - Accessibility-events
+    - Clipboard-read
+    - Clipboard-write
+    - Payment-handle
+    - Idle-detection
+    - Periodic-background-sync
+    - System-wake-lock
+    - Storage-access
+    - Window-placement
+    - Font-access
+    - Tabs
+    - Bookmarks
+    - UnlimitedStorage
+  - Language
+    - Browser Language
+    - System Language
+    - User Language
+  - Plugins
+  - Fonts
+  - Timezone
+  - Canvas Hash
+- Unqiue Visitor ID - FingerprintJS
 
 ## After alert being triggered
 The main.py located at ```/opt/splunk/splunk/bin/scripts``` will be executed</br>
