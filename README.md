@@ -73,8 +73,6 @@ Click Save as alert: </br>
 
 ![image](https://user-images.githubusercontent.com/62169971/150076852-c6c5ff6e-a49d-430e-a2a8-4f1873c4f549.png)
 </details>
-## Splunk Dashboard
-
 
 ## Flow
 ![image](https://user-images.githubusercontent.com/62169971/150054771-2ee3b683-7132-4f42-895f-3058974e6f92.png)
@@ -177,6 +175,15 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
   1. yara_ratelimit
   2. yara_challenge
   3. yara_block
+
+## Splunk Dashboard
+This is sample dashboard that user can use:
+![image](https://user-images.githubusercontent.com/83162708/150095458-ef49f666-723f-4201-a601-095fe3f7abfc.png)
+
+Funtions of this dashboard
+- The user able to select the hash to check the 3 Yara signatures
+- The user able to input ip to check if there is realated hash to the IP
+- Check the locations
 
 ## Use Cases
  
