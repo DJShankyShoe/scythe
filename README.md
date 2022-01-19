@@ -54,7 +54,7 @@ Add new to Files & Directories
 ![image](https://user-images.githubusercontent.com/83162708/149709105-2cdb5ac9-0af9-40b5-b8fc-be2c3548e8e6.png) </br>
 
 
-File or Directories: `/var/log/apache2`
+File or Directories: `/var/log/apache2` <br>
 Do the same for: `/var/log/fingerprint`
 
 ![image](https://user-images.githubusercontent.com/83162708/149709127-2b4464d5-c2c7-4b20-bdd5-6f54c182437b.png) </br>
@@ -205,6 +205,12 @@ Click [HERE](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/das
 ![image](https://user-images.githubusercontent.com/62169971/150109026-53261c6d-7b8d-4c07-ac04-5a5498e026be.png)
 
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
+
+
+![image](https://user-images.githubusercontent.com/62169971/150117223-8ada9e1c-25ba-4154-8849-51174fc80229.png)
+
+![image](https://user-images.githubusercontent.com/62169971/150117272-71b0b165-ace3-44f0-9760-1c5799904d11.png)
+
 
 
  
