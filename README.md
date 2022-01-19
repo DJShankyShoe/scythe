@@ -188,7 +188,21 @@ Funtions of this dashboard
 
 Click [HERE](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/dashboard.xml) to get dashboard source code
 
+
+
+
 ## Use Cases
+
+![image](https://user-images.githubusercontent.com/62169971/150104029-e7cfb3ad-775f-4a50-9ad3-4c2ea24f1e40.png)
+
+![image](https://user-images.githubusercontent.com/62169971/150104494-78a1ff7e-9203-4c14-8482-506cde909f8c.png)
+
+
+![image](https://user-images.githubusercontent.com/62169971/150104408-a92e994d-ce28-4b74-abe8-8922d48e3ea7.png)
+
+
+
+
  
 ## Moving Forward
 - Using the created signature yara_block to create auto block
