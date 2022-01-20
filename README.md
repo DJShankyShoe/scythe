@@ -90,6 +90,29 @@ Click Save as alert: </br>
 10. Main.py will finally generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
 
 ## Fingerprints Details
+
+
+| General              | Hardware  | Network                             | Browser             | Unqiue Visitor ID |
+|     :---:            |    :---:  |                :---:                |         :---:       |        :---:      |
+| Screen Resolution    | CPU Cores | API Status                          | Broswer Permissions | FingerprintJS     |
+| Broswer Type         | GPU       | Country                             | Language            |
+| Broswer Version      |           | Region                              | Plugins             |
+| Mobile (True/False)  |           | Region Name                         | Fonts               |
+| OS Type              |           | City                                | Timezone            |
+| OS Version           |           | Zip                                 | Canvas Hash         |
+| Cookies (True/False) |           | Latitude                            |
+| Flash Version        |           | Longitude                           |
+| AGent                |           | ISP                                 |
+                                   | ORG                                 |
+                                   | As                                  |
+                                   | Asname                              |
+                                   | Reverse DNS                         |
+                                   | Mobile - Cellular Data (True/False) |
+                                   | Proxy (True/False)                  |
+                                   | Hosting (True/False)                |
+                                   | IP Address                          |
+
+
 - General
   - Screen Resolution
   - Broswer Type
