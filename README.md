@@ -178,7 +178,7 @@ Upon logon, fingerprinting of attacker's device is collected
 
 ![image](https://user-images.githubusercontent.com/62169971/150104677-32082f31-387f-4e42-b611-e2def69ed436.png)
 ---
-`A rule written to detect login will be triggered and execute a python script to create signatures`
+`**A rule written to detect login will be triggered and execute a python script to create signatures**`
 
 ![image](https://user-images.githubusercontent.com/62169971/150110059-de2ba7b0-1a66-48a3-ace3-40fa6260b7ec.png)
 ---
