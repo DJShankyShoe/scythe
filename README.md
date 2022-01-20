@@ -112,7 +112,7 @@ Click Save as alert: </br>
 |                           |                 | Hosting (True/False)                     |                     |                         |
 |                           |                 | IP Address                               |                     |                         |
 
-
+### Extended Fingerprint Collection
 <details>
 <summary>Broswer Permissions</summary>
 - Geolocation
@@ -148,12 +148,14 @@ Click Save as alert: </br>
 - Tabs
 - Bookmarks
 - UnlimitedStorage
+</details>
 
+<details>
 <summary>Language</summary>
+  - test
 - Browser Language
 - System Language
 - User Language
-
 </details>
 
 
