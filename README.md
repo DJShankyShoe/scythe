@@ -50,8 +50,11 @@
 ---
 
 ## Description
-A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and browser information upon visit. Once an actor visits the page for login, fingerprint.js will be executed. This data will be logged for SIEM monitoring like Splunk and creating signatures. To lure attackers, credentials can be released on the net whereupon successful logon using those credentials would reveal bad actors and fingerprinting is done. Failed login attempts can also be monitored for fingerprinting when brute force takes place. Splunk rules for those scenarios can be created and once alerted it will execute main.py which is responsible for extracting the right fingerprints from the logs for generating 3 main types of signatures for each actor/unique fingerprint. These 3 signatures are designed for 3 different stages of defence - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continuously updating signatures.
+A fingerprinting engine that creates value from abusive traffic by generating attacker YARA signatures of various strictness levels to apply differing levels of mitigating friction. The tool further deploys honeypot entities to proactively perform threat actor attribution to identify and action against malicious actors rotating IP addresses.
 
+### Mechanism
+A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page, `fingerprint.js` will be executed. The captured fingerprint gets forwarded to SIEM and the YARA signature is created. 
+To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Failed login attempts are also fingerprinted once rate-limiting thresholds are exceeded or when brute-forcing is detected. Upon such a detection, `main.py` will be executed and 3 levels of YARA signatures of varying strictness will be created that can be used for rate-limiting, applying challenge, or blocking of traffic.
 
 ## Websever Setup
 Install the package & and run `install`
@@ -182,7 +185,7 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 
 ### Extended Fingerprint Collection
 <details>
-<summary>Broswer Permissions</summary>
+<summary>Browser Permissions</summary>
   
 `Geolocation` `Notification` `Push` `Midi` `Camera` `Microphone` `Speaker` `Device-info` `Background-fetch` `Background-sync` `Bluetooth` `Persistent-storage` `Ambient-light-sensor` `Accelerometer` `Gyroscope` `Magnetometer` `Clipboard` `Screen-wake-lock` `NFC` `Display-capture` `Accessibility-events` `Clipboard-read` `Clipboard-write` `Payment-handle` `Idle-detection` `Periodic-background-sync` `System-wake-lock` `Storage-access` `Window-placement` `Font-access` `Tabs` `Bookmarks` `UnlimitedStorage` 
 
@@ -215,8 +218,31 @@ Click [HERE](https://github.com/DJShankyShoe/scythe/blob/master/splunk/dashboard
 
 Attackers have been using multiple methods to exploit sites, services, steal credentials & much more. When successful, attackers can use that to gain access to restricted sites, information or permissions. At this stage, defenders would be 1 step behind thus it is important to gain hold of attacker footprints in advance to improve defensive detection by introducing more specific signatures directed to those attackers/bad actors. 
 
-### Scenario: Exposed Credentials
-> Releasing fake credentials on such places will lure attackers to our site,  giving us information about their fingerprints.
+<br /><br />
+
+### Scenario 1: Login Abuses such as Brute-forcing (incl. Password Spraying, Credentials Dumping) via IP Rotate
+> Reducing redirections & wait times after failed logins would increase the simplicity to perform bruteforce attacks
+
+`When come across our honeypot site, attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)`
+
+![image](https://user-images.githubusercontent.com/62169971/150117223-8ada9e1c-25ba-4154-8849-51174fc80229.png)
+---
+`A rule written to detect bruteforce attempts will be triggered and execute a python script to create signatures`
+
+![image](https://user-images.githubusercontent.com/62169971/150117272-71b0b165-ace3-44f0-9760-1c5799904d11.png)
+---
+`3 main types of signatures are created (Block, Challenge, Rate Limit)`
+
+![image](https://user-images.githubusercontent.com/62169971/150120676-cb36a1d7-5147-466a-b7a3-a8ac749590fe.png)
+---
+`For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers`
+**Do note that, from the picture below, the attacker is challenges with recaptcha on the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
+
+![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
+
+<br /><br /><br />
+### Scenario 2: Honeypot Credentials for Attribution of Threat Actors Triggering the Tripwires
+> Releasing fake credentials on such places will lure attackers to our site, giving us information about their fingerprints.
 
 `Release of our website credentials on pastebins`
 
@@ -243,27 +269,13 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
 
+![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
+<br /><br /><br />
 
-### Scenario: Bruteforce
-> Reducing redirections & wait times after failed logins would increase the simplicity to perform bruteforce attacks
-
-`When come across our honeypot site, attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)`
-
-![image](https://user-images.githubusercontent.com/62169971/150117223-8ada9e1c-25ba-4154-8849-51174fc80229.png)
----
-`A rule written to detect bruteforce attempts will be triggered and execute a python script to create signatures`
-
-![image](https://user-images.githubusercontent.com/62169971/150117272-71b0b165-ace3-44f0-9760-1c5799904d11.png)
----
-`3 main types of signatures are created (Block, Challenge, Rate Limit)`
-
-![image](https://user-images.githubusercontent.com/62169971/150120676-cb36a1d7-5147-466a-b7a3-a8ac749590fe.png)
----
-`For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers`
-**Do note that, from the picture below, the attacker is challenges with recaptcha on the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
-
-![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
-
+### Scenario 3: Honeypot Website for Threat Intelligence
+> Launching scythe with a honeypot / fake site (of a similar industry) to fingerprint malicious traffic for signature creation. The honeypot could be placed under a dummy subdomain of an organization. This feed of signatures can then be shared with the open-source threat intelligence community or consumed internally.
+> 
+<br /><br /><br />
 
 
 ## Why create signatures from browser fingerprints
