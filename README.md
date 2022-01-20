@@ -78,13 +78,16 @@ Click Save as alert: </br>
 ## Flow
 ![image](https://user-images.githubusercontent.com/62169971/150096967-4a1bfe06-89b0-47d4-b588-8575fccaaada.png)
 
-- Upon successful/failed login, the page will load fingerprint.php
-- Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
-- Fingerprint.php collects fingerprint from the actor and POSTS it to the generated PHP file
-- The generated PHP file logs the fingerprint & deletes itself
-- The logs from apache & fingerprint is logged by SIEM Splunk
-- Upon alert (customizable by the user), it executes main.py which then extracts the appropriate fingerprint for that event
-- Main.py will then generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
+1. Upon successful/failed login, the page will load fingerprint.php
+2. Login status gets logged and monitored by splunk
+3. Fingerprint.php collects fingerprint from the actor's device and broswer
+4. Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
+5. Fingerprint Data is POSTED to the generated PHP file
+6. The generated PHP file, logs the fingerprint whoch would be monitored by splunk
+7. The generated PHP file deletes itself after PHP is fully executed
+8. Upon alert from SIEM Splunk (customizable by the user), it executes main.py 
+9. Main.py extracts the appropriate fingerprint for that event
+10. Main.py will finally generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
 
 ## Fingerprints Details
 - General
