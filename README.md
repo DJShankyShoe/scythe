@@ -56,9 +56,9 @@ A fingerprinting engine that creates value from abusive traffic by generating at
 A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page, `fingerprint.js` will be executed. The captured fingerprint gets forwarded to SIEM and the YARA signature is created. 
 To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Failed login attempts are also fingerprinted once rate-limiting thresholds are exceeded or when brute-forcing is detected. Upon such a detection, `main.py` will be executed and 3 levels of YARA signatures of varying strictness will be created that can be used for rate-limiting, applying challenge, or blocking of traffic.
 
-## Websever Setup
+## Webserver Setup
 Install the package & and run `install`
-> Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to tranfer them somewhere safe since this directory will be overwritten
+> Take note - if you have apache installed and have files in `/var/www/html`, you will have to tranfer them somewhere safe since this directory will be overwritten
 ```shell
 git clone https://github.com/DJShankyShoe/scythe.git
 tar -xvzf scythe.git && cd scythe
@@ -69,7 +69,7 @@ sudo ./install
 <details>
 <summary>Click for details</summary>
   
-For this part, users must do it manually, due to the Splunk license. User can use their 60days free trial to download
+You may download a free trial here:
 https://www.splunk.com/en_us/download/splunk-enterprise.html
 
 
@@ -83,7 +83,7 @@ Extract the splunk tar package at `/opt` </br>
 sudo tar -xvzf splunk-8.2.4-87e2dda940d1-Linux-x86_64.tgz -C /opt
 ```
 
-For the first time setup, users would have to create admin username and password </br>
+A set of admin credentials need to be created </br>
 ```shell
 sudo /opt/splunk/bin/splunk start --accept-license
 ```
@@ -199,15 +199,15 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 </details>
 
 ## Splunk Dashboard
-This is sample dashboard that user can use:
+This is sample dashboard that users can use:
 
 ![image](https://user-images.githubusercontent.com/83162708/150303178-5ed2278b-c9ee-4683-bf45-b5143927219d.png)
 
 **Funtions of this dashboard**
-- Every hash is represented by a unique avatar <img src="https://user-images.githubusercontent.com/83162708/150305684-edb2db2b-85b6-4c8a-a253-efba65209836.gif" width="25">
-- The user able to select the hash to check the 3 Yara signatures
-- The user able to input ip to check if there is realated hash to the IP
-- Check the IP locations
+- Every hash is represented by a dynamically generated unique avatar <img src="https://user-images.githubusercontent.com/83162708/150305684-edb2db2b-85b6-4c8a-a253-efba65209836.gif" width="25">
+- The user can select the hash to check the 3 Yara signatures
+- The user can input IP to check for associated hashes
+- Check IP locations
 
 Click [HERE](https://github.com/DJShankyShoe/scythe/blob/master/splunk/dashboard.xml) to get dashboard source code
 
@@ -216,18 +216,18 @@ Click [HERE](https://github.com/DJShankyShoe/scythe/blob/master/splunk/dashboard
 
 ## Use Cases
 
-Attackers have been using multiple methods to exploit sites, services, steal credentials & much more. When successful, attackers can use that to gain access to restricted sites, information or permissions. At this stage, defenders would be 1 step behind thus it is important to gain hold of attacker footprints in advance to improve defensive detection by introducing more specific signatures directed to those attackers/bad actors. 
+Attackers have been using multiple methods to exploit sites, services, steal credentials and more. When successful, attackers can use that to gain access to restricted sites, information or  permissions. We provide proactive approaches to engage the attackers early on.
 
 <br /><br />
 
 ### Scenario 1: Login Abuses such as Brute-forcing (incl. Password Spraying, Credentials Dumping) via IP Rotate
-> Reducing redirections & wait times after failed logins would increase the simplicity to perform bruteforce attacks
+> Reducing redirections and wait times after failed logins would increase the simplicity to perform bruteforce attacks
 
-`When come across our honeypot site, attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)`
+`Attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)`
 
 ![image](https://user-images.githubusercontent.com/62169971/150117223-8ada9e1c-25ba-4154-8849-51174fc80229.png)
 ---
-`A rule written to detect bruteforce attempts will be triggered and execute a python script to create signatures`
+`A rule written to detect bruteforce attempts will be triggered and executes a python script to create signatures`
 
 ![image](https://user-images.githubusercontent.com/62169971/150117272-71b0b165-ace3-44f0-9760-1c5799904d11.png)
 ---
@@ -236,7 +236,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ![image](https://user-images.githubusercontent.com/62169971/150120676-cb36a1d7-5147-466a-b7a3-a8ac749590fe.png)
 ---
 `For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers`
-**Do note that, from the picture below, the attacker is challenges with recaptcha on the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
+**The image below presents a non-exhausive illustration of an attacker being challenged with recaptcha**
 
 ![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
 
