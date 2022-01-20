@@ -180,7 +180,7 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 ## Splunk Dashboard
 This is sample dashboard that user can use:
 
-![image](https://user-images.githubusercontent.com/83162708/150303023-247bf669-f5f4-4f35-a12e-7e0843c80d77.png)
+![image](https://user-images.githubusercontent.com/83162708/150303178-5ed2278b-c9ee-4683-bf45-b5143927219d.png)
 
 Funtions of this dashboard
 - Every hash is represented by a unique avatar
