@@ -92,7 +92,7 @@ Click Save as alert: </br>
 ## Fingerprints Details
 
 
-| ** General **             | ** Hardware **  | ** Network **                            | ** Browser **       | ** Unqiue Visitor ID ** |
+| **General**               | **Hardware**    | **Network**                              | **Browser**         | **Unqiue Visitor ID**   |
 |     :---                  |    :---         |                :---                      |         :---        |        :---             |
 | Screen Resolution         | CPU Cores       | API Status                               | Broswer Permissions | FingerprintJS           |
 | Broswer Type              | GPU             | Country                                  | Language            |                         |
