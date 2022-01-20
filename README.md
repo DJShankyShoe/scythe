@@ -107,9 +107,10 @@ sudo /opt/splunk/bin/splunk start --accept-license
 ## Splunk Setup
 <details>
 <summary>Click for details</summary>
-Please place [main.py](https://github.com/DJShankyShoe/scythe/blob/master/splunk/main.py) at ```/opt/splunk/bin/scripts```
 
-
+  Please place [main.py](https://github.com/DJShankyShoe/scythe/blob/master/splunk/main.py)  at ```/opt/splunk/bin/scripts```
+  
+  
 ### Data Input:
 Click Settings > Data inputs
 
