@@ -1,4 +1,4 @@
-# scythe - The Yara Signature Crafter using fingerprints from honeypots
+# `scythe`: `The Yara Signature Crafter` that fingerprints honeypot traffic
 
 ```                                                                               
                                          =.                      =-            
@@ -26,7 +26,7 @@
                                                                                
 ```
 
-## Content 
+## TOC 
 - [Description](#Description)
 - [Websever Setup](#Websever-Setup)
 - [Splunk Installation](#Splunk-Installation)
