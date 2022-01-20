@@ -1,9 +1,29 @@
 # scythe
 
-## Content
-##### Table of Contents  
-[Description](#Description)  
-[Websever Setup](#Websever-Setup)  
+## Content 
+- [Description](#Description)  
+- [Websever Setup](#Websever-Setup)
+- [Splunk Installation](#Splunk-Installation)
+- [Splunk Setup](#Splunk-Setup)
+  - [Data Input](#Data-Input)
+  - [Splunk Alert](#Splunk-Alert)
+- [Flow](#Flow)
+- [Aftermath of Alert Triggers](#Aftermath-of-Alert-Triggers)
+- [Fingerprint Details](#Fingerprint-Details)
+  - [Extended Fingerprint Collection](#Extended-Fingerprint-Collection)
+- [Splunk Dashboard](#Splunk-Dashboard)
+- [Use Cases](#Use-Cases)
+  - [Scenario: Exposed Credentials](#Scenario-Exposed-Credentials)
+  - [Scenario: Bruteforce](#Scenario-Bruteforce)
+- [Why create signatures from browser fingerprints](#Why-create-signatures-from-browser-fingerprints)
+  - [Reduce False Positives](#Reduce-False-Positives)
+  - [Simplicity](#Simplicity)
+  - [High Redundancy](#High-Redundancy)
+- [Moving Forward](#Moving-Forward)
+- [Credits - Fingerprint Collection](#Credits---Fingerprint-Collection)
+
+
+
 
 ## Description
 A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and browser information upon visit. Once an actor visits the page for login, fingerprint.js will be executed. This data will be logged for SIEM monitoring like Splunk and creating signatures. To lure attackers, credentials can be released on the net whereupon successful logon using those credentials would reveal bad actors and fingerprinting is done. Failed login attempts can also be monitored for fingerprinting when brute force takes place. Splunk rules for those scenarios can be created and once alerted it will execute main.py which is responsible for extracting the right fingerprints from the logs for generating 3 main types of signatures for each actor/unique fingerprint. These 3 signatures are designed for 3 different stages of defence - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continuously updating signatures.
@@ -96,7 +116,23 @@ Click Save as alert: </br>
 9. Main.py extracts the appropriate fingerprint for that event
 10. Main.py will finally generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
 
-## Fingerprints Details
+
+## Aftermath of Alert Triggers
+The main.py located at ```/opt/splunk/bin/scripts``` will be executed</br>
+The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
+
+**If Duplicate Exist:**
+- Do nothing
+
+<br>**If NO Duplicates Exist:**
+- Update the myhash.txt
+- Create a new folder named: yara-(Hash values of the JSON fingerprints）, in the folder it will consist:
+  1. yara_ratelimit
+  2. yara_challenge
+  3. yara_block
+
+
+## Fingerprint Details
 
 
 | **General**               | **Hardware**    | **Network**                              | **Browser**         | **Unqiue Visitor ID**   |
@@ -133,22 +169,6 @@ Click Save as alert: </br>
 `Browser Language` `System Language` `User Language`
   
 </details>
-
-
-
-## After alert being triggered
-The main.py located at ```/opt/splunk/bin/scripts``` will be executed</br>
-The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
-
-**If Duplicate Exist:**
-- Do nothing
-
-<br>**If NO Duplicates Exist:**
-- Update the myhash.txt
-- Create a new folder named: yara-(Hash values of the JSON fingerprints）, in the folder it will consist:
-  1. yara_ratelimit
-  2. yara_challenge
-  3. yara_block
 
 ## Splunk Dashboard
 This is sample dashboard that user can use:
