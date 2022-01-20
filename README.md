@@ -93,7 +93,7 @@ Click Save as alert: </br>
 
 
 | ** General **        | ** Hardware **  | ** Network **                       | ** Browser **       | ** Unqiue Visitor ID ** |
-|     :---:            |    :---:        |                :---:                |         :---:       |        :---:            |
+|     :---             |    :---         |                :---                 |         :---        |        :---             |
 | Screen Resolution    | CPU Cores       | API Status                          | Broswer Permissions | FingerprintJS           |
 | Broswer Type         | GPU             | Country                             | Language            |                         |
 | Broswer Version      |                 | Region                              | Plugins             |                         |
@@ -107,7 +107,7 @@ Click Save as alert: </br>
 |                      |                 | As                                  |                     |                         |
 |                      |                 | Asname                              |                     |                         |
 |                      |                 | Reverse DNS                         |                     |                         |
-|                      |                 | Mobile - Cellular Data (True/False) |                     |                         |
+|                      |                 | Mobile - Cellular Data <br> (True/False) |                     |                         |
 |                      |                 | Proxy (True/False)                  |                     |                         |
 |                      |                 | Hosting (True/False)                |                     |                         |
 |                      |                 | IP Address                          |                     |                         |
