@@ -116,38 +116,35 @@ Click Save as alert: </br>
 <details>
 <summary>Broswer Permissions</summary>
   
-`Geolocation` `Notification`
-- Push
-- Midi
-- Camera
-- Microphone
-- Speaker
-- Device-info
-- Background-fetch
-- Background-sync
-- Bluetooth
-- Persistent-storage
-- Ambient-light-sensor
-- Accelerometer
-- Gyroscope
-- Magnetometer
-- Clipboard
-- Screen-wake-lock
-- NFC
-- Display-capture
-- Accessibility-events
-- Clipboard-read
-- Clipboard-write
-- Payment-handle
-- Idle-detection
-- Periodic-background-sync
-- System-wake-lock
-- Storage-access
-- Window-placement
-- Font-access
-- Tabs
-- Bookmarks
-- UnlimitedStorage
+`Geolocation` `Notification` `Push` `Midi` `Camera`
+`Microphone`
+`Speaker`
+`Device-info`
+`Background-fetch`
+`Background-sync`
+`Bluetooth`
+`Persistent-storage`
+`Ambient-light-sensor`
+`Accelerometer`
+`Gyroscope`
+`Magnetometer`
+`Clipboard`
+`Screen-wake-lock`
+`NFC`
+`Display-capture`
+`Accessibility-events`
+`Clipboard-read`
+`Clipboard-write`
+`Payment-handle`
+`Idle-detection`
+`Periodic-background-sync`
+`System-wake-lock`
+`Storage-access`
+`Window-placement`
+`Font-access`
+`Tabs`
+`Bookmarks`
+`UnlimitedStorage`
 </details>
 
 <details>
