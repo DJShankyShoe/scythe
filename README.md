@@ -25,12 +25,8 @@
                                                                 =.                 
 ```
 
-
-
-## Description
-A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and browser information upon visit. Once an actor visits the page for login, fingerprint.js will be executed. This data will be logged for SIEM monitoring like Splunk and creating signatures. To lure attackers, credentials can be released on the net whereupon successful logon using those credentials would reveal bad actors and fingerprinting is done. Failed login attempts can also be monitored for fingerprinting when brute force takes place. Splunk rules for those scenarios can be created and once alerted it will execute main.py which is responsible for extracting the right fingerprints from the logs for generating 3 main types of signatures for each actor/unique fingerprint. These 3 signatures are designed for 3 different stages of defence - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continuously updating signatures.
-
 ## Content 
+- [Description](#Description)
 - [Websever Setup](#Websever-Setup)
 - [Splunk Installation](#Splunk-Installation)
 - [Splunk Setup](#Splunk-Setup)
@@ -50,7 +46,11 @@ A "honeypot" webpage that is used to display a fake organisation that fingerprin
   - [High Redundancy](#High-Redundancy)
 - [Moving Forward](#Moving-Forward)
 - [Credits - Fingerprint Collection](#Credits---Fingerprint-Collection)
-- 
+
+
+## Description
+A "honeypot" webpage that is used to display a fake organisation that fingerprints the actor's device and browser information upon visit. Once an actor visits the page for login, fingerprint.js will be executed. This data will be logged for SIEM monitoring like Splunk and creating signatures. To lure attackers, credentials can be released on the net whereupon successful logon using those credentials would reveal bad actors and fingerprinting is done. Failed login attempts can also be monitored for fingerprinting when brute force takes place. Splunk rules for those scenarios can be created and once alerted it will execute main.py which is responsible for extracting the right fingerprints from the logs for generating 3 main types of signatures for each actor/unique fingerprint. These 3 signatures are designed for 3 different stages of defence - Rate Limiting, Challenge, Blocks which can be released to the cyber community to deal will the bad actors with continuously updating signatures.
+
 
 ## Websever Setup
 Install the package & and run `install`
