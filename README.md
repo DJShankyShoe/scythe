@@ -183,10 +183,10 @@ This is sample dashboard that user can use:
 ![image](https://user-images.githubusercontent.com/83162708/150303178-5ed2278b-c9ee-4683-bf45-b5143927219d.png)
 
 Funtions of this dashboard
-- Every hash is represented by a unique avatar
+- Every hash is represented by a unique avatar <img src="https://user-images.githubusercontent.com/83162708/150305684-edb2db2b-85b6-4c8a-a253-efba65209836.gif" width="100">
 - The user able to select the hash to check the 3 Yara signatures
 - The user able to input ip to check if there is realated hash to the IP
-- Check the locations
+- Check the IP locations
 
 Click [HERE](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/dashboard.xml) to get dashboard source code
 
