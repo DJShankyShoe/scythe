@@ -265,4 +265,14 @@ Browser fingerprints can be broken down to other multiple information such as he
 - Fingeprint more information
 - Customize your own signatures easily
 
+## Credits - Fingerprint Collection
+
+> Network: http://ip-api.com
+> Canvas: https://codepen.io/jon/pen/rwBbgQ
+> Font: https://codepen.io/run-time/pen/XJNXWV
+> Language: https://codepen.io/run-time/pen/XJNXWV
+> Timezone: https://codepen.io/run-time/pen/XJNXWV
+> Fingerprints: https://stackoverflow.com/questions/62706697/how-to-enumerate-supported-permission-names-in-navigator-permissions
+> Fingerprintjs: https://github.com/fingerprintjs/fingerprintjs
+
 
