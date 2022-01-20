@@ -41,16 +41,15 @@
     + [Extended Fingerprint Collection](#extended-fingerprint-collection)
   * [Splunk Dashboard](#splunk-dashboard)
   * [Use Cases](#use-cases)
-    + [Scenario 1: Login Abuses]
-    + [Scenario 2: Honeypot Credentials]
-    + [Scenario 3: Honeypot Website]
+    + [Scenario 1: Login Abuses](#scenario-1-login-abuses-such-as-brute-forcing-incl-password-spraying-credentials-dumping-via-ip-rotate)
+    + [Scenario 2: Honeypot Credentials](#scenario-2-honeypot-credentials-for-attribution-of-threat-actors-triggering-the-tripwires)
+    + [Scenario 3: Honeypot Website](#scenario-3-honeypot-website-for-threat-intelligence)
   * [Why create signatures from browser fingerprints](#why-create-signatures-from-browser-fingerprints)
     + [Reduce False Positives](#reduce-false-positives)
     + [Simplicity](#simplicity)
     + [High Redundancy](#high-redundancy)
   * [Moving Forward](#moving-forward)
   * [Credits - Fingerprint Collection](#credits---fingerprint-collection)
-
 
 
 ---
