@@ -57,8 +57,8 @@ A "honeypot" webpage that is used to display a fake organisation that fingerprin
 Install the package & and run `install`
 > Take note - if you have apache installed and happen to have any files in `/var/www/html`, you will have to tranfer them somewhere safe since this directory will be overwritten
 ```shell
-git clone https://github.com/DJShankyShoe/yetToBeNamed.git
-tar -xvzf yetToBeNamed.git && cd yetToBeNamed
+git clone https://github.com/DJShankyShoe/scythe.git
+tar -xvzf scythe.git && cd scythe
 sudo ./install
 ```
 
@@ -92,7 +92,7 @@ sudo /opt/splunk/bin/splunk start --accept-license
 <details>
 <summary>Click for details</summary>
 Please place
-[main.py](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/main.py) at ```/opt/splunk/bin/scripts```
+[main.py](https://github.com/DJShankyShoe/scythe/blob/master/splunk/main.py) at ```/opt/splunk/bin/scripts```
 
 
 ### Data Input:
@@ -206,7 +206,7 @@ This is sample dashboard that user can use:
 - The user able to input ip to check if there is realated hash to the IP
 - Check the IP locations
 
-Click [HERE](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/dashboard.xml) to get dashboard source code
+Click [HERE](https://github.com/DJShankyShoe/scythe/blob/master/splunk/dashboard.xml) to get dashboard source code
 
 
 
