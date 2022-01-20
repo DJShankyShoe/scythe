@@ -54,7 +54,15 @@ A fingerprinting engine that creates value from abusive traffic by generating at
 
 ### Mechanism
 A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page, `fingerprint.js` will be executed. The captured fingerprint gets forwarded to SIEM and the YARA signature is created. 
-To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Failed login attempts are also fingerprinted once rate-limiting thresholds are exceeded or when brute-forcing is detected. Upon such a detection, `main.py` will be executed and 3 levels of YARA signatures of varying strictness will be created that can be used for rate-limiting, applying challenge, or blocking of traffic.
+To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Failed login attempts are also fingerprinted once rate-limiting thresholds are exceeded or when brute-forcing is detected. Upon such a detection, `main.py` will be executed and **3 levels of YARA signatures of varying strictness will be created**:
+
+| Levels            | 1                                                                                                                            | 2                                                                 | 3                                                                                                                                                        |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Filename          | yara_ratelimit                                                                                                               | yara_challenge                                                    | yara_block                                                                                                                                               |
+| Strictness        | least                                                                                                                        | mid                                                               | high                                                                                                                                                     |
+| Description       | signature bears least amount of specificity                                                                                  | signature bears broad definitions that are likely to be malicious | signature bears precise details, such as fingerprint + IP, such that layer 7 blocks are only applied to actor and not other users on shared IP addresses |
+| Suggested Control | apply rate-limiting policies based on this signature, ie. block the 20th requests coming in within 10 minutes for 15 minutes | throw Google re-captcha on new visits that matches this signature | block requests matching this signature at layer 7                                                                                                        |
+<br />
 
 ## Webserver Setup
 Install the package & and run `install`
@@ -221,7 +229,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 <br /><br />
 
 ### Scenario 1: Login Abuses such as Brute-forcing (incl. Password Spraying, Credentials Dumping) via IP Rotate
-> Reducing redirections and wait times after failed logins would increase the simplicity to perform bruteforce attacks
+> Attackers may bypass rate-limiting controls by employing IP-rotate techniques, thus we fingerprint the attackers device and browser for attribution
 
 `Attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)`
 
