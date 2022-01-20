@@ -1,4 +1,4 @@
-# scythe
+# scythe - The Yara Signature Crafter using fingerprints from honeypots
 
 ```
 
