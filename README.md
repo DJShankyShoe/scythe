@@ -267,12 +267,12 @@ Browser fingerprints can be broken down to other multiple information such as he
 
 ## Credits - Fingerprint Collection
 
-> Network: http://ip-api.com <br>
-> Canvas: https://codepen.io/jon/pen/rwBbgQ <br>
-> Font: https://codepen.io/run-time/pen/XJNXWV <br>
-> Language: https://codepen.io/run-time/pen/XJNXWV <br>
-> Timezone: https://codepen.io/run-time/pen/XJNXWV <br>
-> Fingerprintjs: https://github.com/fingerprintjs/fingerprintjs <br>
-> Permissions: https://stackoverflow.com/questions/62706697/how-to-enumerate-supported-permission-names-in-navigator-permissions <br>
+> Network:        http://ip-api.com <br>
+> Canvas:         https://codepen.io/jon/pen/rwBbgQ <br>
+> Font:           https://codepen.io/run-time/pen/XJNXWV <br>
+> Language:       https://codepen.io/run-time/pen/XJNXWV <br>
+> Timezone:       https://codepen.io/run-time/pen/XJNXWV <br>
+> Fingerprintjs:  https://github.com/fingerprintjs/fingerprintjs <br>
+> Permissions:    https://stackoverflow.com/questions/62706697/how-to-enumerate-supported-permission-names-in-navigator-permissions <br>
 
 
