@@ -115,6 +115,7 @@ Click Save as alert: </br>
 ### Extended Fingerprint Collection
 <details>
 <summary>Broswer Permissions</summary>
+  
 `Geolocation` `Notification`
 - Push
 - Midi
