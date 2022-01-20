@@ -97,19 +97,19 @@ Click Save as alert: </br>
 | Screen Resolution         | CPU Cores       | API Status                               | Broswer Permissions | FingerprintJS           |
 | Broswer Type              | GPU             | Country                                  | Language            |                         |
 | Broswer Version           |                 | Region                                   | Plugins             |                         |
-| Mobile (True/False)       |                 | Region Name                              | Fonts               |                         |
+| Mobile `(True/False)`     |                 | Region Name                              | Fonts               |                         |
 | OS Type                   |                 | City                                     | Timezone            |                         |
 | OS Version                |                 | Zip                                      | Canvas Hash         |                         |
-| Cookies (True/False)      |                 | Latitude                                 |                     |                         |
+| Cookies `(True/False)`    |                 | Latitude                                 |                     |                         |
 | Flash Version             |                 | Longitude                                |                     |                         |
 | AGent                     |                 | ISP                                      |                     |                         |
 |                           |                 | ORG                                      |                     |                         |
 |                           |                 | As                                       |                     |                         |
 |                           |                 | Asname                                   |                     |                         |
 |                           |                 | Reverse DNS                              |                     |                         |
-|                           |                 | Mobile - Cellular Data (True/False)      |                     |                         |
-|                           |                 | Proxy  (True/False)                      |                     |                         |
-|                           |                 | Hosting (True/False)                     |                     |                         |
+|                           |                 | Mobile - Cellular Data `(True/False)`    |                     |                         |
+|                           |                 | Proxy  `(True/False)`                    |                     |                         |
+|                           |                 | Hosting `(True/False)`                   |                     |                         |
 |                           |                 | IP Address                               |                     |                         |
 
 ### Extended Fingerprint Collection
