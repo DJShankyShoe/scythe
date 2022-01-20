@@ -149,7 +149,7 @@ This is sample dashboard that user can use:
 ![image](https://user-images.githubusercontent.com/83162708/150303178-5ed2278b-c9ee-4683-bf45-b5143927219d.png)
 
 Funtions of this dashboard
-- Every hash is represented by a unique avatar <img src="https://user-images.githubusercontent.com/83162708/150305684-edb2db2b-85b6-4c8a-a253-efba65209836.gif" width="100">
+- Every hash is represented by a unique avatar <img src="https://user-images.githubusercontent.com/83162708/150305684-edb2db2b-85b6-4c8a-a253-efba65209836.gif" width="50">
 - The user able to select the hash to check the 3 Yara signatures
 - The user able to input ip to check if there is realated hash to the IP
 - Check the IP locations
@@ -186,7 +186,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150109026-53261c6d-7b8d-4c07-ac04-5a5498e026be.png)
 ---
-`For this scenarios, the Block signature can be integrated with a firewall to block the attacker usage to organisation network <br>`
+`For this scenarios, the Block signature can be integrated with a firewall to block the attacker usage to organisation network` <br>
 **Do note that, from the picture below, the attacker is blocked from accessing the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
 
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
