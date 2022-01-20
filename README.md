@@ -41,9 +41,11 @@ sudo /opt/splunk/bin/splunk start --accept-license
 ```
 
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png) </br>
-
+</details>
 
 ## Splunk Setup
+<details>
+<summary>Click for details</summary>
 Please place
 [main.py](https://github.com/DJShankyShoe/yetToBeNamed/blob/master/splunk/main.py) at ```/opt/splunk/bin/scripts```
 
@@ -65,7 +67,7 @@ Do the same for: `/var/log/fingerprint`
 ![image](https://user-images.githubusercontent.com/83162708/149709127-2b4464d5-c2c7-4b20-bdd5-6f54c182437b.png) </br>
 
 
-### Alert:
+### Splunk Alert:
 Search: `source="/var/log/apache2/access.log*" user=zebrapal123`
 
 ![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
