@@ -116,8 +116,7 @@ Click Save as alert: </br>
 <details>
 <summary>Broswer Permissions</summary>
   
-<dl>
-</dl>  
+ 
   
 `Geolocation` `Notification`
 - Push
