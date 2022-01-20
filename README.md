@@ -169,23 +169,23 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 Release of our website credentials on pastebins
 
 ![image](https://user-images.githubusercontent.com/62169971/150104029-e7cfb3ad-775f-4a50-9ad3-4c2ea24f1e40.png)
-
+---
 When attacker's crawler picks it up, the attacker would attempt to log in using our credentials on our honeypot site
 
 ![image](https://user-images.githubusercontent.com/62169971/150104616-2ac73027-093a-4c6b-8464-efa16cf1a070.png)
-
+---
 Upon logon, fingerprinting of attacker's device is collected
 
 ![image](https://user-images.githubusercontent.com/62169971/150104677-32082f31-387f-4e42-b611-e2def69ed436.png)
-
+---
 A rule written to detect login will be triggered and execute a python script to create signatures 
 
 ![image](https://user-images.githubusercontent.com/62169971/150110059-de2ba7b0-1a66-48a3-ace3-40fa6260b7ec.png)
-
+---
 3 main types of signatures are created (Block, Challenge, Rate Limit)
 
 ![image](https://user-images.githubusercontent.com/62169971/150109026-53261c6d-7b8d-4c07-ac04-5a5498e026be.png)
-
+---
 For this scenarios, the Block signature can be integrated with a firewall to block the attacker usage to organisation network <br>
 **Do note that, from the picture below, the attacker is blocked from accessing the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
 
@@ -198,15 +198,15 @@ For this scenarios, the Block signature can be integrated with a firewall to blo
 When come across our honeypot site, attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)
 
 ![image](https://user-images.githubusercontent.com/62169971/150117223-8ada9e1c-25ba-4154-8849-51174fc80229.png)
-
+---
 A rule written to detect bruteforce attempts will be triggered and execute a python script to create signatures 
 
 ![image](https://user-images.githubusercontent.com/62169971/150117272-71b0b165-ace3-44f0-9760-1c5799904d11.png)
-
+---
 3 main types of signatures are created (Block, Challenge, Rate Limit)
 
 ![image](https://user-images.githubusercontent.com/62169971/150120676-cb36a1d7-5147-466a-b7a3-a8ac749590fe.png)
-
+---
 For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers
 **Do note that, from the picture below, the attacker is challenges with recaptcha on the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
 
