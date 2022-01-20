@@ -27,26 +27,32 @@
 ```
 
 ## TOC 
-- [Description](#Description)
-- [Websever Setup](#Websever-Setup)
-- [Splunk Installation](#Splunk-Installation)
-- [Splunk Setup](#Splunk-Setup)
-  - [Data Input](#Data-Input)
-  - [Splunk Alert](#Splunk-Alert)
-- [Flow](#Flow)
-- [Aftermath of Alert Triggers](#Aftermath-of-Alert-Triggers)
-- [Fingerprint Details](#Fingerprint-Details)
-  - [Extended Fingerprint Collection](#Extended-Fingerprint-Collection)
-- [Splunk Dashboard](#Splunk-Dashboard)
-- [Use Cases](#Use-Cases)
-  - [Scenario: Exposed Credentials](#Scenario-Exposed-Credentials)
-  - [Scenario: Bruteforce](#Scenario-Bruteforce)
-- [Why create signatures from browser fingerprints](#Why-create-signatures-from-browser-fingerprints)
-  - [Reduce False Positives](#Reduce-False-Positives)
-  - [Simplicity](#Simplicity)
-  - [High Redundancy](#High-Redundancy)
-- [Moving Forward](#Moving-Forward)
-- [Credits - Fingerprint Collection](#Credits---Fingerprint-Collection)
+
+- [SCYTHE: `The Yara Signature Crafter`](#scythe---the-yara-signature-crafter--that-fingerprints-honeypot-traffic)
+  * [TOC](#toc)
+  * [Description](#description)
+    + [Mechanism](#mechanism)
+  * [Webserver Setup](#webserver-setup)
+  * [Splunk Installation](#splunk-installation)
+  * [Splunk Setup](#splunk-setup)
+  * [Flow](#flow)
+  * [Aftermath of Alert Triggers](#aftermath-of-alert-triggers)
+  * [Fingerprint Details](#fingerprint-details)
+    + [Extended Fingerprint Collection](#extended-fingerprint-collection)
+  * [Splunk Dashboard](#splunk-dashboard)
+  * [Use Cases](#use-cases)
+    + [Scenario 1: Login Abuses]
+    + [Scenario 2: Honeypot Credentials]
+    + [Scenario 3: Honeypot Website]
+  * [Why create signatures from browser fingerprints](#why-create-signatures-from-browser-fingerprints)
+    + [Reduce False Positives](#reduce-false-positives)
+    + [Simplicity](#simplicity)
+    + [High Redundancy](#high-redundancy)
+  * [Moving Forward](#moving-forward)
+  * [Credits - Fingerprint Collection](#credits---fingerprint-collection)
+
+
+
 ---
 
 ## Description
@@ -249,6 +255,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
 
 <br /><br /><br />
+
 ### Scenario 2: Honeypot Credentials for Attribution of Threat Actors Triggering the Tripwires
 > Releasing fake credentials on such places will lure attackers to our site, giving us information about their fingerprints.
 
@@ -278,6 +285,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
 
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
+
 <br /><br /><br />
 
 ### Scenario 3: Honeypot Website for Threat Intelligence
