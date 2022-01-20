@@ -1,4 +1,4 @@
-# `scythe`: `The Yara Signature Crafter` that fingerprints honeypot traffic
+# scythe: `The Yara Signature Crafter` that fingerprints honeypot traffic
 
 ```                                                                               
                                          =.                      =-            
