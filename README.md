@@ -44,6 +44,7 @@
     + [Scenario 1: Login Abuses](#scenario-1-login-abuses-such-as-brute-forcing-incl-password-spraying-credentials-dumping-via-ip-rotate)
     + [Scenario 2: Honeypot Credentials](#scenario-2-honeypot-credentials-for-attribution-of-threat-actors-triggering-the-tripwires)
     + [Scenario 3: Honeypot Website](#scenario-3-honeypot-website-for-threat-intelligence)
+  * [Integration](#Integration)
   * [Why create signatures from browser fingerprints](#why-create-signatures-from-browser-fingerprints)
     + [Reduce False Positives](#reduce-false-positives)
     + [Simplicity](#simplicity)
@@ -304,7 +305,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ## Integration
 
-When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";`. This can be placed on the home page, or when the user has performed a **successful**/**failed** login.
+When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";`. This can be placed on the home page, or when the user has performed a **successful**/**failed** login. **Do make sure that the current path is writable by web-service**
 
 The fingerprint will be logged at `/var/log/fingerprint/log.txt` path. So create one if doesn't exist. Make sure it is given appropriate permissions for web-service to write into the log file
 
