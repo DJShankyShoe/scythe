@@ -9,7 +9,10 @@ fi
 
 # install apache & php
 apt update
-apt install python3
+apt install -y python3
+apt install -y python3-pip
+pip3 install requests
+pip3 install random_username
 apt install -y apache2
 apt install -y php libapache2-mod-php
 systemctl enable apache2
