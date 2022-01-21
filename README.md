@@ -288,13 +288,14 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ### Scenario 3: Honeypot Website for Threat Intelligence
 > Launching scythe with a honeypot / fake site (of a similar industry) to fingerprint malicious traffic for signature creation. The honeypot could be placed under a dummy subdomain of an organization. This feed of signatures can then be shared with the open-source threat intelligence community or consumed internally.
 
+`The attacker user the unkowing honeypot released Paypal credentials to sign into a honeypot account`
 ![image](https://user-images.githubusercontent.com/62169971/150458414-941acfdf-3a40-4414-91f2-be31bf8c3574.png)
 
+`Upon successful sign in, the user fingeprint get logged and signature is created`
 ![image](https://user-images.githubusercontent.com/62169971/150458537-13a9056d-b1ae-41a8-bc10-3236046690b8.png)
 
-![image](https://user-images.githubusercontent.com/62169971/150459395-b3a6728c-7420-475b-bba3-ccfe1e5e7015.png)
-
-
+`The user gets blocked from accessing the the organisation's domain network suing the block yara generated signature`
+![image](https://user-images.githubusercontent.com/62169971/150459546-10becd09-4d9b-4358-9f48-3960078bb2a1.png)
 
 <br /><br /><br />
 
