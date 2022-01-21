@@ -3,25 +3,19 @@
 /*
 Simple Login Script
 Copyright (C) StivaSoft ltd. All rights Reserved.
-
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see http://www.gnu.org/licenses/gpl-3.0.html.
-
 For further information visit:
 http://www.phpjabbers.com/
 info@phpjabbers.com
-
 Version:  2.0
 Released: 2020-06-09
 */
@@ -74,9 +68,23 @@ error_reporting(0);
         // check if user is logged
         $error = '';
         if (isset($_POST['is_login'])) {
-            if ($_POST['email'] == "zebrapal123@gmail.com" && $_POST['password'] == "zebrapal123") {
+            
+            $userlist = file ('creds.txt');
+            $success = false;
+	    foreach ($userlist as $user) {
+	        $user_details = explode(' ', $user);
+	        if ($user_details[0] == $_POST['email'] && $user_details[1] == $_POST['password']) {
+		    $success = true;
+		    break;
+	        }
+	    }
+            
+            
+            if ($success) {
                 $_SESSION['user_info'] = "WDFWZWJURjR4NXVYbTlwMFUxaUZiM1hXbUxUaERYcXJQYnRRU1lLZA==";
+                $_SESSION['username'] = (explode('@', $user_details[0])[0]);
                 require "../fingerprint.php";
+                
             } else {
                     require "../fingerprint.php";
                     $error = 'Wrong email or password.';
@@ -102,7 +110,7 @@ error_reporting(0);
             <form id="login-form" class="login-form" name="form1">
 
                 <div id="form-content">
-                    <div class="welcome">Zebrapal123, you are logged in - Rights : Admin
+                    <?php echo '<div class="welcome">' . $_SESSION['username'] . ', you are logged in - Rights : Admin' ?>
                         <br/><br/>
                         <a href="index.php?ac=logout" style="color:#006400">Logout</a>
                     </div>
