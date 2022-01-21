@@ -28,7 +28,7 @@
 
 ## TOC 
 
-- [SCYTHE: `The Yara Signature Crafter`](#scythe---the-yara-signature-crafter--that-fingerprints-honeypot-traffic)
+- [SCYTHE: `The Yara Signature Crafter`](#scythe-the-yara-signature-crafter-that-fingerprints-honeypot-traffic)
   * [TOC](#toc)
   * [Description](#description)
     + [Mechanism](#mechanism)
