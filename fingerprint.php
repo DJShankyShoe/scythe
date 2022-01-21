@@ -11,6 +11,7 @@ function generateRandomString($length = 20) {
 }
 
 $randStr = generateRandomString();
+$username = $_SESSION['username'];
 
 $content = "
 <?php
@@ -665,7 +666,7 @@ function postwith(data) {
     }).then(res => {});
 
     window.setTimeout(function() {
-        window.location.href = '/home?user=zebrapal123';
+        window.location.href = '/home?user=<?= $username ?>';
     }, 2000);
 
 
