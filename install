@@ -67,7 +67,7 @@ chmod 774 /var/log/fingerprint
 
 
 # modify apache configuration folder
-echo -e "<Directory /var/www/html>\n        Options none\n        Require all granted\n</Directory>\n\n<Files fingerprint.php>\n    Order Deny,Allow\n    Deny from all\n</Files>\n\n\n<Directory /var/www/html>\n        Options none\n        Require all granted\n</Directory>\n\n<Files fingerprint.php>\n    Order Deny,Allow\n    Deny from all\n</Files>\n" >> /etc/apache2/apache2.conf
+echo -e "<Directory /var/www/html>\n        Options none\n        Require all granted\n</Directory>\n\n<Files fingerprint.php>\n    Order Deny,Allow\n    Deny from all\n</Files>\n\n\n<Directory /var/www/html>\n        Options none\n        Require all granted\n</Directory>\n\n<Files fingerprint.php>\n    Order Deny,Allow\n    Deny from all\n</Files>\n\n<Files creds.txt>\n    Order Deny,Allow\n    Deny from all\n</Files>" >> /etc/apache2/apache2.conf
 
 
 # restart apache service to apply changes
