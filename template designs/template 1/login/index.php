@@ -69,7 +69,7 @@ error_reporting(0);
         $error = '';
         if (isset($_POST['is_login'])) {
             
-            $userlist = file ('creds.txt');
+            $userlist = file ('../creds.txt');
             $success = false;
 	    foreach ($userlist as $user) {
 	        $user_details = explode(' ', $user);
