@@ -306,11 +306,10 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";`. This can be placed on the home page, or when the user has performed a **successful**/**failed** login.
 
-The fingerprint will be logged at `/var/log/fingerprint/log.txt`path. So create one if doesn't exist. Make sure it is given appropriate permissions for web-service to write into the log file
+The fingerprint will be logged at `/var/log/fingerprint/log.txt` path. So create one if doesn't exist. Make sure it is given appropriate permissions for web-service to write into the log file
 
-`main.py` is responsible for extracting fingerprint logs and converting them into signatures. Signatures can be found on the following path `/opt/signatures`. **Do make sure to create an empty file `myhash.txt` before executing `main.py`.
+`main.py` is responsible for extracting fingerprint logs and converting them into signatures. Signatures can be found on the following path `/opt/signatures`. **Do make sure to create an empty file `myhash.txt` before executing `main.py`.**
 
-<br /><br /><br />
 
 ## Why create signatures from browser fingerprints
 
