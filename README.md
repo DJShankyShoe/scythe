@@ -248,7 +248,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150120676-cb36a1d7-5147-466a-b7a3-a8ac749590fe.png)
 ---
-`For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers`
+`For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers`<br />
 **The image below presents a non-exhausive illustration of an attacker being challenged with recaptcha**
 
 ![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
@@ -283,13 +283,19 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
 
-![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
-
 <br /><br /><br />
 
 ### Scenario 3: Honeypot Website for Threat Intelligence
 > Launching scythe with a honeypot / fake site (of a similar industry) to fingerprint malicious traffic for signature creation. The honeypot could be placed under a dummy subdomain of an organization. This feed of signatures can then be shared with the open-source threat intelligence community or consumed internally.
-> 
+
+![image](https://user-images.githubusercontent.com/62169971/150458414-941acfdf-3a40-4414-91f2-be31bf8c3574.png)
+
+![image](https://user-images.githubusercontent.com/62169971/150458537-13a9056d-b1ae-41a8-bc10-3236046690b8.png)
+
+![image](https://user-images.githubusercontent.com/62169971/150459395-b3a6728c-7420-475b-bba3-ccfe1e5e7015.png)
+
+
+
 <br /><br /><br />
 
 
