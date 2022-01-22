@@ -319,9 +319,9 @@ To add credentials, append new credentials to the next line using the mentioned 
 
 ![image](https://user-images.githubusercontent.com/62169971/150639765-59b2ab78-6cf2-4ee7-9ba4-c13595e65ca1.png)
 
-
+<br />
 ### Automatic Method (with pastebin api POST)
-This method automatically creates the credentials and appends it to `creds.txt`. Another step is carried out where the created credentials is released on pastebin to lure attackers. This is achieved by executing [pastebin_api.py](#pastebin_api.py)
+This method automatically creates the credentials and appends them to `creds.txt`. Another step is carried out where the created credentials are released on Pastebin to lure attackers. This is achieved by executing [pastebin_api.py](#pastebin_api.py)
 
 ```shell
 sudo python3 pastebin_api.py
@@ -333,7 +333,18 @@ Upon executing, it whether ask you for `custom/default` message
 | Email Field    | `Custom`        | `Automatically Generated` |
 | Password Field | `Custom`        | `Automatically Generated` |
 | Message Field  | `Custom`        | `Default`                 |
+| Append Creds into `creds.txt`  | `Automatic`   | `Automatic` |
 
+Before executing `pastebin_api.py`, you will have to assign your `dev_api_key` in that file. `dev_api_key` can be retrieved from `https://pastebin.com/doc_api` (you will need an Pastebin account)
+
+![image](https://user-images.githubusercontent.com/62169971/150641133-a88e9853-0d40-4234-88c8-548df66a25d6.png)
+
+After successfuly executing `pastebin_api.py`, the honeypot credentials would be uploaded to Pastbin and appended to `creds.txt`
+
+![image](https://user-images.githubusercontent.com/62169971/150641245-a423db0f-0080-4089-9ab4-0c7ae184e5cd.png)
+
+![image](https://user-images.githubusercontent.com/62169971/150641295-fc3abc2e-3a61-40b6-98bf-e39e74a935a7.png)
+<br /><br /><br />
 
 
 ## Integration
