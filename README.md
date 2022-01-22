@@ -125,7 +125,7 @@ Add new to Files & Directories
 
 
 File or Directories: `/var/log/apache2` <br>
-Do the same for: `/var/log/fingerprint`
+Do the same for: `/var/log/fingerprint` and `/opt/signatures`
 
 ![image](https://user-images.githubusercontent.com/83162708/149709127-2b4464d5-c2c7-4b20-bdd5-6f54c182437b.png) </br>
 
