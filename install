@@ -42,6 +42,7 @@ mkdir /var/www/html
 cp -r "template designs/template 1"/* /var/www/html/
 cp *.php /var/www/html/
 cp time_remove.py /var/www
+cp creds.txt /var/www/html/
 
 
 # dealing with permissions in apache html folder
