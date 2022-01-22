@@ -44,6 +44,9 @@
     + [Scenario 1: Login Abuses](#scenario-1-login-abuses-such-as-brute-forcing-incl-password-spraying-credentials-dumping-via-ip-rotate)
     + [Scenario 2: Honeypot Credentials](#scenario-2-honeypot-credentials-for-attribution-of-threat-actors-triggering-the-tripwires)
     + [Scenario 3: Honeypot Website](#scenario-3-honeypot-website-for-threat-intelligence)
+  * [Adding additional Honeypot Credentials](#adding-additional-honeypot-credentials)
+    + [Manual Method](#manual-method)
+    + [Automatic Method (with pastebin api POST)](#automatic-method-with-pastebin-api-post)
   * [Integration](#Integration)
   * [Why create signatures from browser fingerprints](#why-create-signatures-from-browser-fingerprints)
     + [Reduce False Positives](#reduce-false-positives)
@@ -322,7 +325,7 @@ To add credentials, append new credentials to the next line using the mentioned 
 <br />
 
 ### Automatic Method (with pastebin api POST)
-This method automatically creates the credentials and appends them to `creds.txt`. Another step is carried out where the created credentials are released on Pastebin to lure attackers. This is achieved by executing [pastebin_api.py](#pastebin_api.py)
+This method automatically creates the credentials and appends them to `creds.txt`. Another step is carried out where the created credentials are released on Pastebin to lure attackers. This is achieved by executing [pastebin_api.py](/pastebin_api.py)
 
 ```shell
 sudo python3 pastebin_api.py
@@ -343,6 +346,8 @@ Before executing `pastebin_api.py`, you will have to assign your `dev_api_key` i
 After successfuly executing `pastebin_api.py`, the honeypot credentials would be uploaded to Pastbin and appended to `creds.txt`
 
 ![image](https://user-images.githubusercontent.com/62169971/150641245-a423db0f-0080-4089-9ab4-0c7ae184e5cd.png)
+
+![image](https://user-images.githubusercontent.com/62169971/150641491-ca3fb1ec-763b-49db-8198-d3b75662be4c.png)
 
 ![image](https://user-images.githubusercontent.com/62169971/150641295-fc3abc2e-3a61-40b6-98bf-e39e74a935a7.png)
 
