@@ -128,13 +128,13 @@ Add new to Files & Directories
 
 
 File or Directories: `/var/log/apache2` <br>
-Do the same for: `/var/log/fingerprint` , `/opt/signatures` and `/var/www/html/creds.txt`
+Do the same for: `/var/log/fingerprint` and `/opt/signatures` 
 
 ![image](https://user-images.githubusercontent.com/83162708/149709127-2b4464d5-c2c7-4b20-bdd5-6f54c182437b.png) </br>
 
 
 ### Splunk Alert:
-Search: `source="/var/log/apache2/access.log*" user=zebrapal123`
+Search: `source="/var/log/apache2/access.log*" uri = "/home/?user=*"`
 
 ![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
 
