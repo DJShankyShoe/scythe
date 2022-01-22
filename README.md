@@ -317,13 +317,22 @@ The 1st field represents `email address` while the 2nd field represents `passwor
 
 To add credentials, append new credentials to the next line using the mentioned format
 
-![image](https://user-images.githubusercontent.com/62169971/150639703-c7975ff7-d8d9-4c73-8b07-54602df78d6c.png)
+![image](https://user-images.githubusercontent.com/62169971/150639765-59b2ab78-6cf2-4ee7-9ba4-c13595e65ca1.png)
 
 
 ### Automatic Method (with pastebin api POST)
+This method automatically creates the credentials and appends it to `creds.txt`. Another step is carried out where the created credentials is released on pastebin to lure attackers. This is achieved by executing [pastebin_api.py](#pastebin_api.py)
 
+```shell
+sudo python3 pastebin_api.py
+```
+Upon executing, it whether ask you for `custom/default` message
 
-
+|                | Custom Option   | Default Options           |
+|  :---          |      :---:      |      :---:                |
+| Email Field    | `Custom`        | `Automatically Generated` |
+| Password Field | `Custom`        | `Automatically Generated` |
+| Message Field  | `Custom`        | `Default`                 |
 
 
 
@@ -333,7 +342,7 @@ When you want the user fingerprints to be collected & logged, include the follow
 
 The fingerprint will be logged at `/var/log/fingerprint/log.txt` path. So create one if doesn't exist. Make sure it is given appropriate permissions for web-service to write into the log file
 
-`main.py` is responsible for extracting fingerprint logs and converting them into signatures. Signatures can be found on the following path `/opt/signatures`. **Do make sure to create an empty file `myhash.txt` before executing `main.py`.**
+`main.py` is responsible for extracting fingerprint logs and converting them into signatures. Signatures can be found on the following path `/opt/signatures`. **Do make sure to create an empty file `myhash.txt` before executing `main.py`
 
 
 ## Why create signatures from browser fingerprints
