@@ -136,7 +136,8 @@ Do the same for: `/var/log/fingerprint` and `/opt/signatures`
 ### Splunk Alert:
 Search: `source="/var/log/apache2/access.log*" uri = "/home/?user=*"`
 
-![image](https://user-images.githubusercontent.com/83162708/149709248-a1c43b4f-c8e8-4a52-b688-eefdd9aec189.png)
+![image](https://user-images.githubusercontent.com/83162708/150647302-66eb91e6-792c-4a12-a3fb-6dc9d9472ea3.png)
+
 
 
 Click Save as alert: </br>
