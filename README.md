@@ -74,8 +74,9 @@ To lure attackers, credentials can be released via `scythe` on public sites wher
 Install the package & and run `install`
 > Take note - if you have apache installed and have files in `/var/www/html`, you will have to tranfer them somewhere safe since this directory will be overwritten
 ```shell
-git clone https://github.com/DJShankyShoe/scythe.git
-tar -xvzf scythe.git && cd scythe
+git clone https://github.com/DJShankyShoe/scythe
+cd scythe
+sudo chmod +x install
 sudo ./install
 ```
 
