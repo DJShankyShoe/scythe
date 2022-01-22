@@ -304,6 +304,29 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 <br /><br /><br />
 
+
+## Adding additional Honeypot Credentials
+### Manual Method
+
+When logging in, `login/index.php` will compare the entered credentials to a `creds.txt` lookup file. If any of those credentials exist and match in the lookup file, the actor will be successfully logged in.
+
+The 1st field represents `email address` while the 2nd field represents `password`. The 3rd field represents nothing but you would have to place something to prevent PHP errors.
+
+![image](https://user-images.githubusercontent.com/62169971/150639460-5fd6f6ba-641c-420b-8541-db90d7347a23.png)
+---
+
+To add credentials, append new credentials to the next line using the mentioned format
+
+![image](https://user-images.githubusercontent.com/62169971/150639703-c7975ff7-d8d9-4c73-8b07-54602df78d6c.png)
+
+
+### Automatic Method (with pastebin api POST)
+
+
+
+
+
+
 ## Integration
 
 When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";`. This can be placed on the home page, or when the user has performed a **successful**/**failed** login. **Do make sure that the current path is writable by web-service**
