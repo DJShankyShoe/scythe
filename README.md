@@ -264,7 +264,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ### Scenario 2: Honeypot Credentials for Attribution of Threat Actors Triggering the Tripwires
 > Releasing fake credentials on such places will lure attackers to our site, giving us information about their fingerprints.
 
-`Release of our website credentials on pastebins`
+`Release of our honeypot website credentials on pastebins`
 
 ![image](https://user-images.githubusercontent.com/62169971/150104029-e7cfb3ad-775f-4a50-9ad3-4c2ea24f1e40.png)
 ---
@@ -298,7 +298,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150458414-941acfdf-3a40-4414-91f2-be31bf8c3574.png)
 ---
-`Upon successful sign in, the attacker's fingeprint get logged and signature is generated`
+`Upon successful sign in, the attacker's fingeprint gets logged and signature is generated`
 
 ![image](https://user-images.githubusercontent.com/62169971/150458537-13a9056d-b1ae-41a8-bc10-3236046690b8.png)
 ---
