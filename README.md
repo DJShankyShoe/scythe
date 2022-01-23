@@ -367,13 +367,13 @@ The fingerprint will be logged at `/var/log/fingerprint/log.txt` path. So create
 ## Why create signatures from browser fingerprints
 
 ### Reduce False Positives
-Organisation has been mostly using only IP Addresses to deal with bad actors. Sometimes these information are not enough as these IP's could come from organisations, merchants, or any shared groups. These can largly affect customers when using single information like IP for blocks, challenges or rate-limiting. Thus to limit false positives, we can use broswer fingerprints to uniquely identify bad actors among actors for defensive measures without affecting customers and merchants. 
+Organisations have been mostly using only IP Addresses to deal with bad actors. Sometimes this information is not enough as these IP's could come from organisations, merchants, or any shared groups. These can largely affect customers when using single information like IP for blocks, challenges or rate-limiting. Thus, to limit false positives, we can use browser fingerprints to uniquely identify bad actors among actors for defensive measures without affecting customers and merchants.
 
 ### Simplicity
-It is very easy to obtain broswer fingerprints using javascript or logs. It can be done in the background without affecting cusotmer's experience. This makes it simple for organisation to deploy tools for broswer fingerprinting. 
+It is very easy to obtain browser fingerprints using JavaScript or logs. It can be done in the background without affecting the customer’s experience. This makes it simple for organisations to deploy tools for browser fingerprinting.
 
 ### High Redundancy
-Browser fingerprints can be broken down to other multiple information such as header, ip, hardware, canvas hash, etc. So even if 1 or more information is missing, a proper signature can still be crafted for various use cases and confidence levels.
+Browser fingerprints can be broken down to other multiple information such as header, IP, hardware, canvas hash, etc. So even if 1 or more information is missing, a proper signature can still be crafted for various use cases and confidence levels.
 
 ## Moving Forward
 - Using the created signature yara_block to create auto block
