@@ -302,7 +302,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150458537-13a9056d-b1ae-41a8-bc10-3236046690b8.png)
 ---
-`The user gets blocked from accessing the the organisation's domain network using the yara block generated signature`
+`The user gets blocked from accessing the organisation's domain network using the yara block generated signature`
 
 ![image](https://user-images.githubusercontent.com/62169971/150459546-10becd09-4d9b-4358-9f48-3960078bb2a1.png)
 
