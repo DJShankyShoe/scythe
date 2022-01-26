@@ -376,9 +376,9 @@ It is very easy to obtain browser fingerprints using JavaScript or logs. It can 
 Browser fingerprints can be broken down to other multiple information such as header, IP, hardware, canvas hash, etc. So even if 1 or more information is missing, a proper signature can still be crafted for various use cases and confidence levels.
 
 ## Moving Forward
-- Using the created signature yara_block to create auto block
+- Using the created signature yara_block to create automated blocking capabilities
 - Integration of more SIEM tools
-- Fingeprint more information
+- Fingerprint more information
 - Customize your own signatures easily
 
 ## Credits - Fingerprint Collection
