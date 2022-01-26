@@ -184,7 +184,7 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 
 | **General**               | **Hardware**    | **Network**                              | **Browser**         | **Unqiue Visitor ID**   |
 |     :---                  |    :---         |                :---                      |         :---        |        :---             |
-| Screen Resolution         | CPU Cores       | API Status                               | Broswer Permissions | FingerprintJS           |
+| Screen Resolution         | CPU Cores       | API Status                               | Browser Permissions | FingerprintJS           |
 | Broswer Type              | GPU             | Country                                  | Language            |                         |
 | Broswer Version           |                 | Region                                   | Plugins             |                         |
 | Mobile `(True/False)`     |                 | Region Name                              | Fonts               |                         |
