@@ -14,6 +14,7 @@ with open(fingerprint_log_file, 'r') as f:
 # remove the time
 extract = re.search("\[\d+:\w+:\d+:\d+:\d+:\d+\s(\W|\D)\d+\]\s", latest_log).group(0)
 json_data = latest_log.replace(extract, "")
+json_data = json_data.replace("\n","")
 
 # hash the json_data
 json_hash = hashlib.md5(json_data.encode("utf-8")).hexdigest()
