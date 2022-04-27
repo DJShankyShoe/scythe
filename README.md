@@ -154,7 +154,7 @@ Click Save as alert: </br>
 
 1. Upon successful/failed login, the page will load fingerprint.php
 2. Login status gets logged and monitored by splunk
-3. Fingerprint.php collects fingerprint from the actor's device and broswer
+3. Fingerprint.php collects fingerprint from the actor's device and browser
 4. Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
 5. Fingerprint Data is POSTED to the generated PHP file
 6. The generated PHP file, logs the fingerprint whoch would be monitored by splunk
@@ -185,8 +185,8 @@ The script will hash the JSON formated fingerprints and verifies for any duplica
 | **General**               | **Hardware**    | **Network**                              | **Browser**         | **Unqiue Visitor ID**   |
 |     :---                  |    :---         |                :---                      |         :---        |        :---             |
 | Screen Resolution         | CPU Cores       | API Status                               | Browser Permissions | FingerprintJS           |
-| Broswer Type              | GPU             | Country                                  | Language            |                         |
-| Broswer Version           |                 | Region                                   | Plugins             |                         |
+| Browser Type              | GPU             | Country                                  | Language            |                         |
+| Browser Version           |                 | Region                                   | Plugins             |                         |
 | Mobile `(True/False)`     |                 | Region Name                              | Fonts               |                         |
 | OS Type                   |                 | City                                     | Timezone            |                         |
 | OS Version                |                 | Zip                                      | Canvas Hash         |                         |
