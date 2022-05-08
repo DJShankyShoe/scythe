@@ -283,19 +283,15 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 ### Scenario 1: Login Abuses such as Brute-forcing (incl. Password Spraying, Credentials Dumping) via IP Rotate
 > Attackers may bypass rate-limiting controls by employing IP-rotate techniques, thus we fingerprint the attackers device and browser for attribution
 
-`Attackers may attempt to perform bruteforce (when unsuccesful login occurs, fingerprinting of attacker's device is collected)`
+`Attackers may attempt to perform bruteforce`
 
 ![image](https://user-images.githubusercontent.com/62169971/150117223-8ada9e1c-25ba-4154-8849-51174fc80229.png)
 ---
-`A rule written to detect bruteforce attempts will be triggered and executes a python script to create signatures`
+`A rule written to detect bruteforce attempts will be triggered and executes yaraGen.py to create signatures`
 
 ![image](https://user-images.githubusercontent.com/62169971/150117272-71b0b165-ace3-44f0-9760-1c5799904d11.png)
 ---
-`3 main types of signatures are created (Block, Challenge, Rate Limit)`
-
-![image](https://user-images.githubusercontent.com/62169971/150120676-cb36a1d7-5147-466a-b7a3-a8ac749590fe.png)
----
-`For this scenarios, the Challenge signature can be used for creating recaptcha to prevent/slow down bruteforce attempts by attackers`<br />
+`For this scenario, a match between the fingerprint and yara level-2 rule resulted in presenting recaptcha to prevent/slow down bruteforce attempts by attackers`<br />
 **The image below presents a non-exhausive illustration of an attacker being challenged with recaptcha**
 
 ![image](https://user-images.githubusercontent.com/62169971/150121180-0525666e-2928-49fc-aa56-6f1646edcdaa.png)
@@ -313,22 +309,14 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150104616-2ac73027-093a-4c6b-8464-efa16cf1a070.png)
 ---
-`Upon logon, fingerprinting of attacker's device is collected`
-
-![image](https://user-images.githubusercontent.com/62169971/150104677-32082f31-387f-4e42-b611-e2def69ed436.png)
----
-`A rule written to detect login will be triggered and execute a python script to create signatures`
+`Upon logon, rule written to detect login will be triggered and executes yaraGen.py to create signatures`
 
 ![image](https://user-images.githubusercontent.com/62169971/150110059-de2ba7b0-1a66-48a3-ace3-40fa6260b7ec.png)
 ---
-`3 main types of signatures are created (Block, Challenge, Rate Limit)`
-
-![image](https://user-images.githubusercontent.com/62169971/150109026-53261c6d-7b8d-4c07-ac04-5a5498e026be.png)
----
-`For this scenarios, the Block signature can be integrated with a firewall to block the attacker usage to organisation network` <br>
+`For this scenarios, a match between the fingerprint and yara level-3 rule resulted in a block on the attacker usage to organisation network` <br>
 **Do note that, from the picture below, the attacker is blocked from accessing the honeypot site which is only an example. Organisation can use those signatures on their actual network to deal with attackers**
 
-![image](https://user-images.githubusercontent.com/62169971/150109302-15b66f23-ee26-4d33-96ab-c327a0380b4d.png)
+![image](https://user-images.githubusercontent.com/62169971/167305017-fc3d5702-ea67-4f2e-87c7-c4dc0d2afd3a.png)
 
 <br /><br /><br />
 
@@ -339,13 +327,13 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 ![image](https://user-images.githubusercontent.com/62169971/150458414-941acfdf-3a40-4414-91f2-be31bf8c3574.png)
 ---
-`Upon successful sign in, the attacker's fingeprint gets logged and signature is generated`
+`Upon successful sign in using the released credentials, an alert is generated that executes yaraGen.py to create signatures`
 
 ![image](https://user-images.githubusercontent.com/62169971/150458537-13a9056d-b1ae-41a8-bc10-3236046690b8.png)
 ---
-`The user gets blocked from accessing the organisation's domain network using the yara block generated signature`
+`The user gets blocked from accessing the organisation's domain network using the yara level-3 generated signature`
 
-![image](https://user-images.githubusercontent.com/62169971/150459546-10becd09-4d9b-4358-9f48-3960078bb2a1.png)
+![image](https://user-images.githubusercontent.com/62169971/167305017-fc3d5702-ea67-4f2e-87c7-c4dc0d2afd3a.png)
 
 <br /><br /><br />
 
@@ -355,7 +343,7 @@ Attackers have been using multiple methods to exploit sites, services, steal cre
 
 When logging in, `login/index.php` will compare the entered credentials to a `creds.txt` lookup file. If any of those credentials exist and match in the lookup file, the actor will be successfully logged in.
 
-The 1st field represents `email address` while the 2nd field represents `password`. The 3rd field represents nothing but you would have to place something to prevent PHP errors.
+The 1st field represents `email address` while the 2nd field represents `password`. The 3rd field does not represent anythin but you would have to place something to prevent PHP errors.
 
 ![image](https://user-images.githubusercontent.com/62169971/150639460-5fd6f6ba-641c-420b-8541-db90d7347a23.png)
 ---
@@ -367,12 +355,12 @@ To add credentials, append new credentials to the next line using the mentioned 
 <br />
 
 ### Automatic Method (with pastebin api POST)
-This method automatically creates the credentials and appends them to `creds.txt`. Another step is carried out where the created credentials are released on Pastebin to lure attackers. This is achieved by executing [pastebin_api.py](/pastebin_api.py)
+This method automatically creates the credentials and appends them to `creds.txt`. Additional step is carried out where the created credentials are released on Pastebin to lure attackers. This is achieved by executing [pastebin_api.py](https://github.com/DJShankyShoe/scythe/blob/master/scripts/pastebin_api.py) located at `/opt/scripts/`
 
 ```shell
 sudo python3 pastebin_api.py
 ```
-Upon executing, it whether ask you for `custom/default` message
+Upon executing, it asks for `custom/default` message
 
 |                | Custom Option   | Default Options           |
 |  :---          |      :---:      |      :---:                |
@@ -398,11 +386,12 @@ After successfuly executing `pastebin_api.py`, the honeypot credentials would be
 
 ## Integration
 
-When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";`. This can be placed on the home page, or when the user has performed a **successful**/**failed** login. **Do make sure that the current path is writable by web-service**
+When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";` in your web files. This can be placed on the home page, or when the user has performed a **successful**/**failed** login. <br>
+If you want the fingerprint extraction to be before visiting a page, it's best to call another web file that executes the `fingerprint.php` before redirecting the user to the visited page.
 
-The fingerprint will be logged at `/var/log/fingerprint/log.txt` path. So create one if doesn't exist. Make sure it is given appropriate permissions for web-service to write into the log file
+The fingerprint will be logged at `/var/log/scythe/fingerprint.txt` path. So create directory if doesn't exist. **Do make sure that the log path is writable by web-service**
 
-`main.py` is responsible for extracting fingerprint logs and converting them into signatures. Signatures can be found on the following path `/opt/signatures`. **Do make sure to create an empty file `myhash.txt` before executing `main.py`**
+`yaraGen.py` is responsible for extracting fingerprint logs and converting them into signatures. Signatures can be found on the following path `/opt/signatures`. **Do make sure to create an empty file `myhash.txt` before executing `yaraGen.py`**
 
 
 ## Why create signatures from browser fingerprints
