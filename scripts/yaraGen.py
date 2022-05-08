@@ -11,7 +11,7 @@ import os
 fingerprint_log_file = "/var/log/scythe/fingerprint.txt"
 signature_path = "/opt/signatures/"
 result_filepath = sys.argv[8]
-alert = sys.argv[4]
+alert = sys.argv[4].lower()
 
 with gzip.open(result_filepath, 'r') as file:
     file_content = file.read()
@@ -94,6 +94,7 @@ if json_hash not in open(signature_path + "myhash.txt").read():
         yara3.write("rule " + uniqueID + ": level_3\n{\nstrings:\n" + strings + "\ncondition:\n" + condition + "\n}\n")
 
 
+# modify accordingly from splunk alert name (block, captcha, limit)
 if alert == "limit":
     rule_type = "level_1"
 elif alert == "captcha":
