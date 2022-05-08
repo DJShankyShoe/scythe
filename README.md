@@ -34,7 +34,7 @@
     + [Mechanism](#mechanism)
   * [Webserver Setup](#webserver-setup)
   * [Splunk Installation](#splunk-installation)
-  * [Splunk Setup](#splunk-setup)
+  * [Splunk Configuration](#splunk-configuration)
   * [Flow](#flow)
   * [Aftermath of Alert Triggers](#aftermath-of-alert-triggers)
   * [Fingerprint Details](#fingerprint-details)
@@ -47,7 +47,7 @@
   * [Adding additional Honeypot Credentials](#adding-additional-honeypot-credentials)
     + [Manual Method](#manual-method)
     + [Automatic Method (with pastebin api POST)](#automatic-method-with-pastebin-api-post)
-  * [Integration](#Integration)
+  * [Integration](#integration)
   * [Why create signatures from browser fingerprints](#why-create-signatures-from-browser-fingerprints)
     + [Reduce False Positives](#reduce-false-positives)
     + [Simplicity](#simplicity)
@@ -62,8 +62,8 @@
 A fingerprinting engine that creates value from abusive traffic by generating attacker YARA signatures of various strictness levels to apply differing levels of mitigating friction. The tool further deploys honeypot entities to proactively perform threat actor attribution to identify and action against malicious actors rotating IP addresses.
 
 ### Mechanism
-A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page as the first session, `fingerprint.php` will be executed. The captured fingerprint gets logged and a YARA signature is created upon an alert from the SIEM. 
-To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Using SIEM allows you to create custom rules such as rate-limiting thresholds or brute-forcing. Upon such a detection, `yaraGen.py` will be executed and **3 levels of YARA signatures of varying strictness will be created**:
+A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit of web page as first user session, `fingerprint.php` will be executed by a web file. The captured fingerprint gets logged and YARA signatures are created upon receiving an alert from the SIEM. 
+To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Using SIEM to create custom rules rules such as rate-limiting thresholds or brute-forcing allows the creation of highly confident **3 YARA signatures, varying strictness**:
 
 | Levels            | 1                                                                                                                            | 2                                                                 | 3                                                                                                                                                        |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -140,7 +140,7 @@ File or Directories: `/var/log/scythe/status.txt`
 
 
 ## Field Extraction:
-source="/var/log/scythe/status.txt" <br>
+source = `/var/log/scythe/status.txt` <br>
 Under Results: `Event Actions` > `Extract Fields`
 
 ![image](https://user-images.githubusercontent.com/62169971/167299778-0dd4ad20-a912-40c7-bf0b-e5fa2a5452a3.png)
@@ -187,7 +187,7 @@ Modify `yaraGen.py` line 98 - 103 according to the splunk alert name
 ## Flow
 ![image](https://user-images.githubusercontent.com/62169971/167294561-673e564b-acde-4363-a5fa-658713347011.png)
 
-1. Upon visiting the site for the first time of session, it will load process.php
+1. Upon visiting the site as first user session, it will load process.php
 2. Process.php responsible for creating a unique ID and loading fingerprint.php
 3. Fingerprint.php collects fingerprint from the actor's device and browser
 4. Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
@@ -196,7 +196,7 @@ Modify `yaraGen.py` line 98 - 103 according to the splunk alert name
 7. The generated PHP file deletes itself after PHP is fully executed
 8. Process.php will redirect the actor back to login.php and upon login, it executes check.py
 9. Check.py retrieves the fingerprint for that actor by tracking the unique ID
-10. Check.py uses the extracted fingerprint and attempts to find a match in a yara signature file full of threat actors
+10. Check.py uses the extracted fingerprint and attempts to find a match in a live.yara file - containing lists of attacker's signatures
 11. The result of the match (if any) is processed and returned back to the site whether to perform any action `block`, `captcha`, `limit`
 12. Login status is monitored by SIEM splunk and executes yaraGen.py if there is any alert
 13. YaraGen.py retrieves information regarding the alert and extracts the appropriate fingerprint that is tracked by unique ID
@@ -205,14 +205,14 @@ Modify `yaraGen.py` line 98 - 103 according to the splunk alert name
 
 
 ## Aftermath of Alert Triggers
-The yaraGen.py located at `/opt/scripts/` will be executed </br>
-It will hash the fingerprint collect and verifies for any duplicates stored in `myhash.txt`
+The `yaraGen.py` located at `/opt/scripts/` will be executed </br>
+It will hash the fingerprint collected and verifies for any duplicates stored in `myhash.txt`
 
 **If Duplicate Exist:**
 - Do nothing
 
 <br>**If NO Duplicates Exist:**
-- Update the myhash.txt
+- Appends new hash into myhash.txt
 - Creates 3 different yara signatures and pushes them into their respective file at  `/opt/signatures/`:
   1. yara_ratelimit
   2. yara_challenge
@@ -386,8 +386,8 @@ After successfuly executing `pastebin_api.py`, the honeypot credentials would be
 
 ## Integration
 
-When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";` in your web files. This can be placed on the home page, or when the user has performed a **successful**/**failed** login. <br>
-If you want the fingerprint extraction to be before visiting a page, it's best to call another web file that executes the `fingerprint.php` before redirecting the user to the visited page.
+When you want the user fingerprints to be collected & logged, include the following code `require "../fingerprint.php";` in your web files. This can be placed and executed on the login page when the user has performed a **successful**/**failed** login. <br>
+If you want the fingerprint extraction to be done before visiting a page, it's best to call another web file that executes the `fingerprint.php` before redirecting the user to the visited page.
 
 The fingerprint will be logged at `/var/log/scythe/fingerprint.txt` path. So create directory if doesn't exist. **Do make sure that the log path is writable by web-service**
 
