@@ -62,23 +62,30 @@
 A fingerprinting engine that creates value from abusive traffic by generating attacker YARA signatures of various strictness levels to apply differing levels of mitigating friction. The tool further deploys honeypot entities to proactively perform threat actor attribution to identify and action against malicious actors rotating IP addresses.
 
 ### Mechanism
-A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page, `fingerprint.js` will be executed. The captured fingerprint gets forwarded to SIEM and the YARA signature is created. 
-To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Failed login attempts are also fingerprinted once rate-limiting thresholds are exceeded or when brute-forcing is detected. Upon such a detection, `main.py` will be executed and **3 levels of YARA signatures of varying strictness will be created**:
+A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page as the first session, `fingerprint.php` will be executed. The captured fingerprint gets logged and a YARA signature is created upon an alert from the SIEM. 
+To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. USing SIEM allows you to create custom rules such as rate-limiting thresholds or brute-forcing. Upon such a detection, `yaraGen.py` will be executed and **3 levels of YARA signatures of varying strictness will be created**:
 
 | Levels            | 1                                                                                                                            | 2                                                                 | 3                                                                                                                                                        |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Filename          | yara_ratelimit                                                                                                               | yara_challenge                                                    | yara_block                                                                                                                                               |
+| Filename          | level1.yara                                                                                                               | level2.yara                                                    | level3.yara                                                                                                                                               |
 | Strictness        | least                                                                                                                        | mid                                                               | high                                                                                                                                                     |
 | Description       | signature bears least amount of specificity                                                                                  | signature bears broad definitions that are likely to be malicious | signature bears precise details, such as fingerprint + IP, such that layer 7 blocks are only applied to actor and not other users on shared IP addresses |
 | Suggested Control | apply rate-limiting policies based on this signature, ie. block the 20th requests coming in within 10 minutes for 15 minutes | throw Google re-captcha on new visits that matches this signature | block requests matching this signature at layer 7                                                                                                        |
 <br />
 
 ## Webserver Setup
+Install the package
+```shell
+git clone https://github.com/DJShankyShoe/scythe
+```
+Add your [Captcha keys](https://www.google.com/recaptcha/about/) in `scythe/php/manage.php`
+
+![image](https://user-images.githubusercontent.com/62169971/167285295-b84e6d38-3074-4f7c-add9-6465b161fd3d.png)
+
+
 Install the package & and run `install`
 > Take note - if you have apache installed and have files in `/var/www/html`, you will have to tranfer them somewhere safe since this directory will be overwritten
 ```shell
-git clone https://github.com/DJShankyShoe/scythe
-cd scythe
 sudo chmod +x install
 sudo ./install
 ```
@@ -150,18 +157,23 @@ Click Save as alert: </br>
 </details>
 
 ## Flow
-![image](https://user-images.githubusercontent.com/62169971/150096967-4a1bfe06-89b0-47d4-b588-8575fccaaada.png)
+![image](https://user-images.githubusercontent.com/62169971/167294561-673e564b-acde-4363-a5fa-658713347011.png)
 
-1. Upon successful/failed login, the page will load fingerprint.php
-2. Login status gets logged and monitored by splunk
+1. Upon visiting the site for the first time of session, it will load process.php
+2. Process.php responsible for creating a unique ID and loading fingerprint.php
 3. Fingerprint.php collects fingerprint from the actor's device and browser
 4. Fingerprint.php creates a randomly generated PHP file name for retrieving POST data
 5. Fingerprint Data is POSTED to the generated PHP file
-6. The generated PHP file, logs the fingerprint whoch would be monitored by splunk
+6. The generated PHP file, logs the fingerprint with unique ID in fingerprint.txt located at `/var/log/scythe`
 7. The generated PHP file deletes itself after PHP is fully executed
-8. Upon alert from SIEM Splunk (customizable by the user), it executes main.py 
-9. Main.py extracts the appropriate fingerprint for that event
-10. Main.py will finally generate 3 main types of Yara signatures where used for **Rate Limiting**, **Challenge**, **Block** 
+8. Process.php will redirect the actor back to login.php and upon login, it executes check.py
+9. Check.py retrieves the fingerprint for that actor by tracking the unique ID
+10. Check.py uses the extracted fingerprint and attempts to find a match in a yara signature file full of threat actors
+11. The result of the match (if any) is processed and returned back to the site whether to perform any action `block`, `captcha`, `limit`
+12. Login status is monitored by SIEM splunk and executes yaraGen.py if there is any alert
+13. YaraGen.py retrieves information regarding the alert and extracts the appropriate fingerprint that is tracked by unique ID
+14. YaraGen.py generates 3 main levels of Yara signatures - **Level 1**, **Level 2**, **Level 3** 
+15. The approrpiate level signature is pushed to live.yara that is used for action monitoring
 
 
 ## Aftermath of Alert Triggers
@@ -376,7 +388,6 @@ It is very easy to obtain browser fingerprints using JavaScript or logs. It can 
 Browser fingerprints can be broken down to other multiple information such as header, IP, hardware, canvas hash, etc. So even if 1 or more information is missing, a proper signature can still be crafted for various use cases and confidence levels.
 
 ## Moving Forward
-- Using the created signature yara_block to create automated blocking capabilities
 - Integration of more SIEM tools
 - Fingerprint more information
 - Customize your own signatures easily
