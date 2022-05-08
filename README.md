@@ -217,7 +217,7 @@ It will hash the fingerprint collect and verifies for any duplicates stored in `
   1. yara_ratelimit
   2. yara_challenge
   3. yara_block
-- Pushes the appropriate yara signature (based from the alert on SIEM) to yara.live (acts like a rules table)
+- Pushes the appropriate yara signature (based from the alert from SIEM) to yara.live (acts like rules table)
 
 
 ## Fingerprint Details
