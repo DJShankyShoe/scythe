@@ -40,6 +40,7 @@
   * [Fingerprint Details](#fingerprint-details)
     + [Extended Fingerprint Collection](#extended-fingerprint-collection)
   * [Splunk Dashboard](#splunk-dashboard)
+  * [UI Console](#ui-console)
   * [Use Cases](#use-cases)
     + [Scenario 1: Login Abuses](#scenario-1-login-abuses-such-as-brute-forcing-incl-password-spraying-credentials-dumping-via-ip-rotate)
     + [Scenario 2: Honeypot Credentials](#scenario-2-honeypot-credentials-for-attribution-of-threat-actors-triggering-the-tripwires)
@@ -270,6 +271,19 @@ This is sample dashboard that users can use:
 - Check IP locations
 
 Click [HERE](https://github.com/DJShankyShoe/scythe/blob/master/splunk/dashboard.xml) to get dashboard source code
+
+
+
+
+## UI Console
+A basic [UI](https://github.com/DJShankyShoe/scythe/blob/master/scripts/ui.py) located at `/opt/scripts/` is created to get live status of user logins and alerts. 
+
+![image](https://user-images.githubusercontent.com/62169971/167307643-50d6a78f-5e52-4274-bc6b-ea57e610fc46.png)
+
+It can be used to view current user `fingerprints` and `signatures` (if alerts are created)
+
+![image](https://user-images.githubusercontent.com/62169971/167307673-462f4168-97f6-4ced-84c3-0c1913cdb14c.png)
+![image](https://user-images.githubusercontent.com/62169971/167307697-5aad1616-b784-422f-bb05-e8634df48d0d.png)
 
 
 
