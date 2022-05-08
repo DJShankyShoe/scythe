@@ -63,14 +63,14 @@ A fingerprinting engine that creates value from abusive traffic by generating at
 
 ### Mechanism
 A honeypot webpage fingerprints a malicious actor's device and browser information. Upon visit the login page as the first session, `fingerprint.php` will be executed. The captured fingerprint gets logged and a YARA signature is created upon an alert from the SIEM. 
-To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. USing SIEM allows you to create custom rules such as rate-limiting thresholds or brute-forcing. Upon such a detection, `yaraGen.py` will be executed and **3 levels of YARA signatures of varying strictness will be created**:
+To lure attackers, credentials can be released via `scythe` on public sites whereupon successful logon using those credentials would reveal malicious actors and fingerprinting is completed. Using SIEM allows you to create custom rules such as rate-limiting thresholds or brute-forcing. Upon such a detection, `yaraGen.py` will be executed and **3 levels of YARA signatures of varying strictness will be created**:
 
 | Levels            | 1                                                                                                                            | 2                                                                 | 3                                                                                                                                                        |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Filename          | level1.yara                                                                                                               | level2.yara                                                    | level3.yara                                                                                                                                               |
 | Strictness        | least                                                                                                                        | mid                                                               | high                                                                                                                                                     |
-| Description       | signature bears least amount of specificity                                                                                  | signature bears broad definitions that are likely to be malicious | signature bears precise details, such as fingerprint + IP, such that layer 7 blocks are only applied to actor and not other users on shared IP addresses |
-| Suggested Control | apply rate-limiting policies based on this signature, ie. block the 20th requests coming in within 10 minutes for 15 minutes | throw Google re-captcha on new visits that matches this signature | block requests matching this signature at layer 7                                                                                                        |
+| Description       | signature bears least amount of specificity                                                                                  | signature bears broad definitions that are likely to be malicious | signature bears precise details |
+| Suggested Control | apply rate-limiting policies based on this signature, ie. block the 20th requests coming in within 10 minutes for 15 minutes | throw Google re-captcha on new visits that matches this signature | block requests                                                                                                        |
 <br />
 
 ## Webserver Setup
@@ -116,11 +116,11 @@ sudo /opt/splunk/bin/splunk start --accept-license
 ![image](https://user-images.githubusercontent.com/83162708/149709048-d36afa98-97da-4b3c-9e3e-589db68b28c3.png) </br>
 </details>
 
-## Splunk Setup
+## Splunk Configuration
 <details>
 <summary>Click for details</summary>
 
-  Please place [main.py](https://github.com/DJShankyShoe/scythe/blob/master/splunk/main.py)  at ```/opt/splunk/bin/scripts```
+  Shift file [yaraGen.py](https://github.com/DJShankyShoe/scythe/blob/master/scripts/yaraGen.py) located at `/opt/scripts` to `/opt/splunk/bin/scripts`
   
   
 ### Data Input:
@@ -129,31 +129,59 @@ Click Settings > Data inputs
 ![image](https://user-images.githubusercontent.com/83162708/149710610-9ecfce6c-6a0a-4404-a2e7-bfa42dab5f86.png) </br>
 
 
-Add new to Files & Directories
+`Add new` to Files & Directories
 
 ![image](https://user-images.githubusercontent.com/83162708/149709105-2cdb5ac9-0af9-40b5-b8fc-be2c3548e8e6.png) </br>
 
 
-File or Directories: `/var/log/apache2` <br>
-Do the same for: `/var/log/fingerprint` and `/opt/signatures` 
+File or Directories: `/var/log/scythe/status.txt`
 
-![image](https://user-images.githubusercontent.com/83162708/149709127-2b4464d5-c2c7-4b20-bdd5-6f54c182437b.png) </br>
+![image](https://user-images.githubusercontent.com/62169971/167299167-b7095849-00fa-4a1f-8386-a229ad46fa9c.png) </br>
+
+
+## Field Extraction:
+source="/var/log/scythe/status.txt" <br>
+Under Results: `Event Actions` > `Extract Fields`
+
+![image](https://user-images.githubusercontent.com/62169971/167299778-0dd4ad20-a912-40c7-bf0b-e5fa2a5452a3.png)
+
+
+Select `Regular Expression` and hit next
+
+![image](https://user-images.githubusercontent.com/62169971/167299889-1be3d07e-6b05-47e8-955b-610837af494b.png)
+
+
+Start highlighting the required fields and give them appropriate names (userID, email, status)
+
+![image](https://user-images.githubusercontent.com/62169971/167300129-50fb9687-8e04-4508-9ee0-d7e5d12323d0.png)
+
+
+Validate them and save extraction
+
+![image](https://user-images.githubusercontent.com/62169971/167300220-0bb9e06c-797a-441b-a655-3c593b8098f1.png)
 
 
 ### Splunk Alert:
-Search: `source="/var/log/apache2/access.log*" uri = "/home/?user=*"`
+Examples: <br>
+- Block Alert: `source="/var/log/scythe/status.txt" status="successful" | table userID` <br>
+- Captcha Alert: `source="/var/log/scythe/status.txt" status="failed" | stats count by userID | dedup userID | where count > 3` <br>
 
-![image](https://user-images.githubusercontent.com/83162708/150647302-66eb91e6-792c-4a12-a3fb-6dc9d9472ea3.png)
-
+![image](https://user-images.githubusercontent.com/62169971/167300394-05948cfe-7798-424a-b287-c3a10985637f.png)
 
 
 Click Save as alert: </br>
-> Tile: Actor Login </br>
+> Tile: block </br>
 > Alert type: Real-time </br>
-> Expires: 60 days </br>
-> When triggered: Run a script, File name:main.py
+> Expires: 100 days </br>
+> When triggered: Run a script, File name: `yaraGen.py`
 
-![image](https://user-images.githubusercontent.com/62169971/150076852-c6c5ff6e-a49d-430e-a2a8-4f1873c4f549.png)
+![image](https://user-images.githubusercontent.com/62169971/167300653-51289915-7f54-4f42-962e-f96b1f828d3d.png)
+
+
+Modify `yaraGen.py` line 98 - 103 according to the splunk alert name
+
+![image](https://user-images.githubusercontent.com/62169971/167300734-49130936-3a04-453b-bfa0-89c1166d210a.png)
+
 </details>
 
 ## Flow
@@ -177,18 +205,19 @@ Click Save as alert: </br>
 
 
 ## Aftermath of Alert Triggers
-The main.py located at ```/opt/splunk/bin/scripts``` will be executed</br>
-The script will hash the JSON formated fingerprints and verifies for any duplicates in hash.txt
+The yaraGen.py located at `/opt/scripts/` will be executed </br>
+It will hash the fingerprint collect and verifies for any duplicates stored in `myhash.txt`
 
 **If Duplicate Exist:**
 - Do nothing
 
 <br>**If NO Duplicates Exist:**
 - Update the myhash.txt
-- Create a new folder named: yara-(Hash values of the JSON fingerprints）, in the folder it will consist:
+- Creates 3 different yara signatures and pushes them into their respective file at  `/opt/signatures/`:
   1. yara_ratelimit
   2. yara_challenge
   3. yara_block
+- Pushes the appropriate yara signature (based from the alert on SIEM) to yara.live (acts like a rules table)
 
 
 ## Fingerprint Details
