@@ -40,9 +40,9 @@ json_dict = json.loads(json_data)
 
 
 # customizable yara rule
-level_1 = ["jscd_browser", "jscd_browserMajorVersion", "jscd_os", "jscd_agent", "network_mobile", "network_query"]
-level_2 = ["browser_permissions", "browser_fonts", "browser_canvas", "network_city"]
-level_3 = ["jscd_agent", "browser_permissions", "browser_fonts", "browser_canvas", "network_query", "visitorId"]
+level_1 = ["jscd_agent", "network_zip", "network_query", "browser_timezone"]
+level_2 = ["jscd_agent", "jscd_mobile", "hardware_gpu", "browser_permissions", "browser_fonts", "browser_canvas"]
+level_3 = ["jscd_agent", "jscd_mobile", "jscd_os", "hardware_cpuCores", "hardware_gpu", "browser_permissions", "browser_fonts", "browser_canvas", "browser_plugins", "visitorId"]
 
 
 # pass in json parameters and returns with yara formated rule
