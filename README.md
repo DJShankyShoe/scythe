@@ -214,10 +214,10 @@ It will hash the fingerprint collected and verifies for any duplicates stored in
 
 <br>**If NO Duplicates Exist:**
 - Appends new hash into myhash.txt
-- Creates 3 different yara signatures and pushes them into their respective file at  `/opt/signatures/`:
-  1. yara_ratelimit
-  2. yara_challenge
-  3. yara_block
+- Creates 3 different yara signatures and appends them into their respective file at  `/opt/signatures/`:
+  1. level1.yara
+  2. level2.yara
+  3. level3yara
 - Pushes the appropriate yara signature (based from the alert from SIEM) to yara.live (acts like rules table)
 
 
